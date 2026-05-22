@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Smitkumar Jayendrakumar Velani">
+<meta name="description" content="Smitkumar Velani — MS Data Science student at Northeastern University. Portfolio showcasing ML, AI, and Data Science projects.">
+<link rel="icon" type="image/png" href="images/photo.PNG">
 <title>Smitkumar Velani — Data Scientist</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -347,6 +350,18 @@
     pointer-events: none;
   }
 
+  .cursor {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 300;
+    animation: blink 0.8s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr; }
     .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
@@ -358,12 +373,13 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">SV</a>
+  <a href="index.html" class="nav-logo">SV</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="projects.html">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="ai-page.html">AI Page</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -374,7 +390,7 @@
     <p class="hero-desc">MS Data Science @ Northeastern University.</p>
     <p class="hero-desc">I <span id="typewriter"></span><span class="cursor">|</span></p>
     <div class="hero-cta">
-      <a href="#projects" class="btn-primary">View Projects ↓</a>
+      <a href="projects.html" class="btn-primary">View Projects ↓</a>
       <a href="resume.pdf" download class="btn-secondary">Download Resume</a>
     </div>
   </div>
@@ -387,7 +403,7 @@
   <div class="section-title">Building at the intersection<br>of data & intelligence</div>
   <div class="about-grid">
     <div>
-      <img src="photo.PNG" class="about-img" alt="Smit Velani" onerror="this.parentNode.innerHTML='<div class=about-img-placeholder>SV</div>'">
+      <img src="images/photo.PNG" class="about-img" alt="Smit Velani profile photo" onerror="this.parentNode.innerHTML='<div class=about-img-placeholder>SV</div>'">
     </div>
     <div class="about-text">
       <p>I'm an MS Data Science student at Northeastern University, Boston, with a strong foundation in machine learning, deep learning, and AI engineering.</p>
@@ -424,7 +440,7 @@
       <div style="font-size:0.85rem; color: var(--muted); margin-bottom:0.5rem;">Stock Market Data Analysis System · Python | Pandas | NumPy | Tkinter | yfinance</div>
       <ul class="exp-bullets">
         <li>Integrated Yahoo Finance API to fetch real-time OHLCV data for 4+ stocks across 250+ daily records</li>
-        <li>Engineered 11 technical indicators from scratch (SMA, EMA, Bollinger Bands, RSI, MACD) using vectorised NumPy , no external TA library</li>
+        <li>Engineered 11 technical indicators from scratch (SMA, EMA, Bollinger Bands, RSI, MACD) using vectorised NumPy, no external TA library</li>
         <li>Built interactive Tkinter dashboard with 20 clickable charts and computed Sharpe Ratio, Max Drawdown metrics</li>
       </ul>
     </div>
@@ -464,7 +480,6 @@
       <div class="project-stack">
         <span class="stack-pill">LangChain</span>
         <span class="stack-pill">FAISS</span>
-        <span class="skill-item">MLflow</span>
         <span class="stack-pill">HuggingFace</span>
         <span class="stack-pill">Gemini API</span>
         <span class="stack-pill">PyPDF2</span>
@@ -486,19 +501,19 @@
       <span class="project-link">View on GitHub →</span>
     </a>
 
-   <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-card">
-     <div class="project-tag">MLOps · ML Pipeline</div>
-     <div class="project-title">Loan Default Prediction with MLflow</div>
-     <div class="project-desc">Trained 4 ML models on 32,581 real loan records tracked via MLflow. XGBoost achieved 93.4% accuracy and AUC 0.947. Identified top predictors via feature importance analysis.</div>
-     <div class="project-stack">
-       <span class="stack-pill">XGBoost</span>
-       <span class="stack-pill">MLflow</span>
-       <span class="stack-pill">Scikit-Learn</span>
-       <span class="stack-pill">Pandas</span>
-    </div>
-       <span class="project-link">View on GitHub →</span>
+    <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-card">
+      <div class="project-tag">MLOps · ML Pipeline</div>
+      <div class="project-title">Loan Default Prediction with MLflow</div>
+      <div class="project-desc">Trained 4 ML models on 32,581 real loan records tracked via MLflow. XGBoost achieved 93.4% accuracy and AUC 0.947. Identified top predictors via feature importance analysis.</div>
+      <div class="project-stack">
+        <span class="stack-pill">XGBoost</span>
+        <span class="stack-pill">MLflow</span>
+        <span class="stack-pill">Scikit-Learn</span>
+        <span class="stack-pill">Pandas</span>
+      </div>
+      <span class="project-link">View on GitHub →</span>
     </a>
-   
+
     <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-card">
       <div class="project-tag">Data Visualization</div>
       <div class="project-title">DataPulse Dashboard</div>
@@ -608,59 +623,10 @@
 </section>
 
 <footer>
-  <p>Designed & built by Smitkumar Velani · Boston, MA · 2025</p>
+  <p>Designed &amp; built by Smitkumar Velani · Boston, MA · 2026</p>
 </footer>
 
+<script type="module" src="js/main.js"></script>
+
 </body>
-<script>
-  const phrases = [
-    "build LLM-powered RAG chatbots.",
-    "train reinforcement learning agents.",
-    "turn raw data into decisions.",
-    "build deep learning systems.",
-    "love solving real-world problems with ML."
-  ];
-
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  const el = document.getElementById('typewriter');
-
-  function type() {
-    const current = phrases[phraseIndex];
-
-    if (!isDeleting) {
-      el.textContent = current.substring(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === current.length) {
-        isDeleting = true;
-        setTimeout(type, 2000);
-        return;
-      }
-    } else {
-      el.textContent = current.substring(0, charIndex - 1);
-      charIndex--;
-      if (charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-      }
-    }
-    setTimeout(type, isDeleting ? 40 : 60);
-  }
-
-  type();
-</script>
-
-<style>
-  .cursor {
-    display: inline-block;
-    color: var(--accent);
-    font-weight: 300;
-    animation: blink 0.8s infinite;
-  }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-</style>
 </html>
