@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Smitkumar Jayendrakumar Velani" />
+    <meta
+      name="description"
+      content="Projects by Smitkumar Velani — ML, AI, Data Science, and Web Development projects."
+    />
+    <title>Projects | Smit Velani</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #ffffff;
+        --bg2: #f8fafc;
+        --bg3: #f1f5f9;
+        --accent: #2563eb;
+        --accent2: #0ea5e9;
+        --text: #0f172a;
+        --muted: #64748b;
+        --border: rgba(0, 0, 0, 0.08);
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      /* NAVBAR */
+      nav {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 1.2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-logo {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover { color: var(--text); }
+      .nav-links a.active { color: var(--accent); }
+
+      /* HERO */
+      .hero {
+        padding: 5rem 2rem 3rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+      }
+
+      .hero h1 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.05;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-desc {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 560px;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: var(--border);
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      /* PROJECTS */
+      .projects-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem 6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+      }
+
+      /* PROJECT CARD */
+      .project {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+        padding-bottom: 5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .project:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .project-left {
+        position: sticky;
+        top: 100px;
+      }
+
+      .project-number {
+        font-family: "Syne", sans-serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: rgba(37, 99, 235, 0.08);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-tag {
+        display: inline-block;
+        background: rgba(37, 99, 235, 0.07);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.25rem 0.7rem;
+        border-radius: 4px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        display: block;
+        width: fit-content;
+      }
+
+      .project-title-left {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        color: var(--text);
+      }
+
+      .project-github-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--text);
+        color: white;
+        padding: 0.7rem 1.2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: opacity 0.2s, transform 0.2s;
+        margin-top: 0.5rem;
+      }
+
+      .project-github-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+      }
+
+      .project-right h2 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        color: var(--text);
+      }
+
+      .project-right p {
+        color: var(--muted);
+        font-size: 0.97rem;
+        line-height: 1.85;
+        margin-bottom: 1.2rem;
+      }
+
+      .project-right p strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* ACHIEVEMENTS */
+      .achievements {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.2rem 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .achievements h4 {
+        font-family: "Syne", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.8rem;
+      }
+
+      .achievements ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .achievements ul li {
+        font-size: 0.9rem;
+        color: var(--muted);
+        padding-left: 1.2rem;
+        position: relative;
+      }
+
+      .achievements ul li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 0.7rem;
+        top: 0.3rem;
+      }
+
+      .achievements ul li strong {
+        color: var(--text);
+      }
+
+      /* TECH STACK */
+      .tech-stack {
+        margin-top: 1.5rem;
+      }
+
+      .tech-stack h4 {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.8rem;
+      }
+
+      .stack-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .stack-pill {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        padding: 0.3rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      /* LEARNED */
+      .learned {
+        margin-top: 1.5rem;
+        border-left: 3px solid var(--accent);
+        padding-left: 1rem;
+      }
+
+      .learned h4 {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.5rem;
+      }
+
+      .learned p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin: 0;
+        font-style: italic;
+      }
+
+      /* FOOTER */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+        background: var(--bg2);
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        .project { grid-template-columns: 1fr; }
+        .project-left { position: static; }
+        .nav-links { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <nav>
+      <a href="index.html" class="nav-logo">SV</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="ai-page.html">AI Page</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="section-label">Portfolio</div>
+      <h1>Things I've <span>Built</span></h1>
+      <p class="hero-desc">
+        A collection of ML, AI, and data science projects — each targeting a
+        different area of the field. Every project here was built from scratch
+        with real data and real outcomes.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PROJECTS -->
+    <div class="projects-container">
+
+      <!-- PROJECT 1 -->
+      <div class="project">
+        <div class="project-left">
+          <div class="project-number">01</div>
+          <span class="project-tag">NLP · LLM · RAG</span>
+          <div class="project-title-left">RAG PDF Chatbot</div>
+          <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" class="project-github-btn">
+            ↗ View on GitHub
+          </a>
+        </div>
+        <div class="project-right">
+          <h2>RAG PDF Chatbot</h2>
+          <p>
+            This project builds an end-to-end
+            <strong>Retrieval-Augmented Generation (RAG)</strong> pipeline that
+            allows users to upload any PDF document and ask natural language
+            questions about its content. The system retrieves the most relevant
+            sections from the document and uses a large language model to
+            generate accurate, context-grounded answers.
+          </p>
+          <p>
+            The pipeline processes PDFs into 500-word overlapping chunks and
+            stores them as 384-dimensional semantic vectors using
+            <strong>HuggingFace sentence-transformers</strong>
+            (all-MiniLM-L6-v2). When a user asks a question, the system
+            performs semantic search using <strong>FAISS</strong> to retrieve
+            the top-3 most relevant chunks, even when the user's wording differs
+            significantly from the document text.
+          </p>
+          <p>
+            The retrieved context is passed to
+            <strong>Google Gemini 2.5 Flash API</strong> with a custom prompt
+            engineering template that instructs the model to answer only from
+            the provided context — preventing hallucination and keeping answers
+            grounded in the source document.
+          </p>
+
+          <div class="achievements">
+            <h4>⚡ Key Achievements</h4>
+            <ul>
+              <li>Processes PDFs into <strong>500-word overlapping chunks</strong> for better context retention</li>
+              <li>Stores <strong>384-dimensional semantic vectors</strong> in FAISS for fast retrieval</li>
+              <li>Retrieves <strong>top-3 relevant chunks</strong> per query using cosine similarity</li>
+              <li>Achieved <strong>correct answers on factual queries</strong> across 15-page research documents</li>
+              <li>Integrated <strong>Gemini 2.5 Flash API</strong> with custom prompt engineering</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h4>Tech Stack</h4>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">LangChain</span>
+              <span class="stack-pill">FAISS</span>
+              <span class="stack-pill">HuggingFace</span>
+              <span class="stack-pill">Gemini API</span>
+              <span class="stack-pill">PyPDF2</span>
+              <span class="stack-pill">Sentence Transformers</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h4>What I Learned</h4>
+            <p>Building this project gave me deep hands-on experience with vector databases, semantic search, and prompt engineering — skills that are increasingly central to production AI systems. I learned how chunking strategy significantly impacts retrieval quality.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project">
+        <div class="project-left">
+          <div class="project-number">02</div>
+          <span class="project-tag">Reinforcement Learning</span>
+          <div class="project-title-left">Multi-Agent Atari Boxing DQN</div>
+          <a href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" class="project-github-btn">
+            ↗ View on GitHub
+          </a>
+        </div>
+        <div class="project-right">
+          <h2>Multi-Agent Atari Boxing DQN</h2>
+          <p>
+            This project trains two competing
+            <strong>Deep Q-Network (DQN) agents</strong> to play the Atari
+            Boxing game against each other using the PettingZoo multi-agent
+            environment and PyTorch. The agents learn entirely through
+            self-play — no hardcoded rules or human demonstrations.
+          </p>
+          <p>
+            Each agent uses a
+            <strong>CNN-based DQN architecture</strong> consisting of 3
+            convolutional layers followed by 2 fully connected layers, operating
+            on 4 stacked 84×84 grayscale frames as input. The stacking of frames
+            gives the agent temporal information — it can infer velocity and
+            direction of movement from consecutive frames.
+          </p>
+          <p>
+            Key RL techniques implemented from scratch include
+            <strong>Experience Replay</strong> with a 10,000-sample buffer,
+            <strong>Target Networks</strong> for stable Q-value updates, and
+            <strong>Epsilon-Greedy exploration</strong> decaying from 1.0 to
+            0.1 over training. The model was trained over 200 episodes on a
+            T4 GPU using Google Colab.
+          </p>
+
+          <div class="achievements">
+            <h4>⚡ Key Achievements</h4>
+            <ul>
+              <li>Achieved <strong>62%/38% win-rate split</strong> between agents after 200 episodes</li>
+              <li>Trained on <strong>T4 GPU</strong> via Google Colab with full experiment tracking</li>
+              <li>Implemented <strong>Experience Replay (10K buffer)</strong> and Target Networks from scratch</li>
+              <li>Preprocessed <strong>210×160×3 RGB frames</strong> to 84×84 grayscale using OpenCV</li>
+              <li>Visualized reward curves and win-rate progression using Matplotlib</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h4>Tech Stack</h4>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">PyTorch</span>
+              <span class="stack-pill">PettingZoo</span>
+              <span class="stack-pill">OpenCV</span>
+              <span class="stack-pill">Matplotlib</span>
+              <span class="stack-pill">Google Colab</span>
+              <span class="stack-pill">CUDA (T4 GPU)</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h4>What I Learned</h4>
+            <p>This project gave me practical experience with the full DQN training loop, the importance of experience replay for stability, and how multi-agent environments introduce non-stationarity that makes training more challenging than single-agent RL.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project">
+        <div class="project-left">
+          <div class="project-number">03</div>
+          <span class="project-tag">MLOps · ML Pipeline</span>
+          <div class="project-title-left">Loan Default Prediction with MLflow</div>
+          <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-github-btn">
+            ↗ View on GitHub
+          </a>
+        </div>
+        <div class="project-right">
+          <h2>Loan Default Prediction with MLflow</h2>
+          <p>
+            This project builds a complete
+            <strong>end-to-end ML pipeline</strong> for predicting loan defaults
+            using 32,581 real loan records. Four different machine learning
+            models were trained and compared — Logistic Regression, Decision
+            Tree, Random Forest, and XGBoost — with all experiments tracked
+            using <strong>MLflow</strong>.
+          </p>
+          <p>
+            The pipeline covers the full data science lifecycle: data cleaning,
+            feature engineering, class imbalance handling using SMOTE,
+            hyperparameter tuning, model evaluation, and experiment tracking.
+            Each experiment run is logged to MLflow with metrics, parameters,
+            and artifacts for full reproducibility.
+          </p>
+          <p>
+            <strong>XGBoost</strong> emerged as the best performing model,
+            achieving 93.4% accuracy and an AUC of 0.947. Feature importance
+            analysis identified the top predictors of loan default, providing
+            actionable insights for credit risk assessment.
+          </p>
+
+          <div class="achievements">
+            <h4>⚡ Key Achievements</h4>
+            <ul>
+              <li>Trained on <strong>32,581 real loan records</strong> from a public credit dataset</li>
+              <li><strong>XGBoost achieved 93.4% accuracy</strong> and AUC of 0.947</li>
+              <li>All 4 models tracked via <strong>MLflow</strong> with full experiment logging</li>
+              <li>Handled class imbalance using <strong>SMOTE oversampling</strong></li>
+              <li>Identified top loan default predictors via <strong>feature importance analysis</strong></li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h4>Tech Stack</h4>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">XGBoost</span>
+              <span class="stack-pill">MLflow</span>
+              <span class="stack-pill">Scikit-Learn</span>
+              <span class="stack-pill">Pandas</span>
+              <span class="stack-pill">SMOTE</span>
+              <span class="stack-pill">Matplotlib</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h4>What I Learned</h4>
+            <p>This project taught me the importance of experiment tracking in ML — without MLflow, comparing 4 models across multiple hyperparameter configurations would have been chaotic. I also gained practical experience with handling real-world class imbalance problems.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="project">
+        <div class="project-left">
+          <div class="project-number">04</div>
+          <span class="project-tag">Data Visualization</span>
+          <div class="project-title-left">DataPulse Dashboard</div>
+          <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-github-btn">
+            ↗ View on GitHub
+          </a>
+        </div>
+        <div class="project-right">
+          <h2>DataPulse Dashboard</h2>
+          <p>
+            DataPulse is a fully interactive, dark-themed analytics dashboard
+            built with <strong>D3.js v7</strong> that visualizes over 11,900
+            records across three different datasets — no backend required. All
+            data is loaded client-side using the Fetch API, making it a
+            pure front-end application.
+          </p>
+          <p>
+            The dashboard features <strong>7 chart types</strong> including bar
+            charts, line charts, scatter plots, heatmaps, area charts, pie
+            charts, and KPI cards — all built from scratch using D3.js SVG
+            rendering. Every chart is interactive with tooltips, hover states,
+            and click-to-filter functionality.
+          </p>
+          <p>
+            The three datasets cover <strong>1,000 e-commerce orders</strong>,
+            <strong>7,300 climate readings</strong>, and
+            <strong>3,600 stock records</strong> — demonstrating the
+            dashboard's versatility across different data domains and chart
+            requirements.
+          </p>
+
+          <div class="achievements">
+            <h4>⚡ Key Achievements</h4>
+            <ul>
+              <li>Built <strong>7 chart types</strong> from scratch using D3.js v7 SVG rendering</li>
+              <li>Visualizes <strong>11,900+ records</strong> across 3 different datasets</li>
+              <li>Debugged 4 critical rendering bugs independently through systematic isolation</li>
+              <li><strong>Zero backend</strong> — pure front-end with client-side data loading</li>
+              <li>Full dark theme with interactive tooltips and hover states on all charts</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h4>Tech Stack</h4>
+            <div class="stack-pills">
+              <span class="stack-pill">D3.js v7</span>
+              <span class="stack-pill">JavaScript</span>
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">Pandas</span>
+              <span class="stack-pill">HTML/CSS</span>
+              <span class="stack-pill">Fetch API</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h4>What I Learned</h4>
+            <p>Building complex visualizations with D3.js from scratch taught me how SVG rendering works at a low level, and how to think about data binding, scales, and axes. Debugging rendering issues without a framework forced me to deeply understand the DOM.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 5 -->
+      <div class="project">
+        <div class="project-left">
+          <div class="project-number">05</div>
+          <span class="project-tag">Data Analytics · SQL</span>
+          <div class="project-title-left">Customer Shopping Behavior</div>
+          <a href="https://github.com/Smit-Velani/customer_behavior" target="_blank" class="project-github-btn">
+            ↗ View on GitHub
+          </a>
+        </div>
+        <div class="project-right">
+          <h2>Customer Shopping Behavior Analysis</h2>
+          <p>
+            This is an end-to-end data analytics project analyzing
+            <strong>3,900 retail transactions</strong> to uncover customer
+            purchasing patterns, segment performance, and revenue distribution.
+            The project covers the full analytics pipeline from raw data
+            ingestion and SQL analysis to interactive Power BI visualization.
+          </p>
+          <p>
+            The SQL analysis uses <strong>10 complex queries</strong> including
+            Common Table Expressions (CTEs) and window functions to calculate
+            running totals, rank customers by lifetime value, and identify
+            seasonal purchase trends. All queries were written and executed in
+            <strong>PostgreSQL</strong>.
+          </p>
+          <p>
+            The final <strong>Power BI dashboard</strong> reveals key business
+            insights including a $157K vs $75K gender revenue split and
+            identifies Young Adults as the top customer segment with $62,143 in
+            total spend — actionable findings that could directly inform
+            marketing strategy.
+          </p>
+
+          <div class="achievements">
+            <h4>⚡ Key Achievements</h4>
+            <ul>
+              <li>Analyzed <strong>3,900 retail transactions</strong> end-to-end</li>
+              <li>Wrote <strong>10 SQL queries</strong> using CTEs and window functions</li>
+              <li>Uncovered <strong>$157K vs $75K gender revenue split</strong></li>
+              <li>Identified <strong>Young Adults as top segment</strong> with $62,143 total spend</li>
+              <li>Built interactive <strong>Power BI dashboard</strong> for business stakeholders</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h4>Tech Stack</h4>
+            <div class="stack-pills">
+              <span class="stack-pill">PostgreSQL</span>
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">Pandas</span>
+              <span class="stack-pill">Power BI</span>
+              <span class="stack-pill">SQL CTEs</span>
+              <span class="stack-pill">Window Functions</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h4>What I Learned</h4>
+            <p>This project reinforced how much insight can come from structured data when the right questions are asked. Writing complex SQL with window functions taught me to think about data transformation as a pipeline rather than individual queries.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        <a href="index.html">← Back to Home</a> &nbsp;·&nbsp;
+        Smitkumar Jayendrakumar Velani &nbsp;·&nbsp;
+        <a href="https://github.com/Smit-Velani" target="_blank">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/smit-velani" target="_blank">LinkedIn</a>
+      </p>
+    </footer>
+
+  </body>
+</html>
