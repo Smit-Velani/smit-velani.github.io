@@ -141,7 +141,7 @@
   }
   .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
 
-  section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .page-section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
 
   .section-label {
     font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em;
@@ -305,7 +305,7 @@
     text-align: center;
   }
 
-  .contact-wrap h3 {
+  .contact-wrap-title {
     font-family: 'Syne', sans-serif;
     font-size: 2rem; font-weight: 700; margin-bottom: 0.8rem;
     color: var(--text);
@@ -398,12 +398,12 @@
 
 <div class="divider"></div>
 
-<section id="about">
+<div id="about" class="page-section">
   <div class="section-label">About Me</div>
-  <div class="section-title">Building at the intersection<br>of data & intelligence</div>
+  <h2 class="section-title">Building at the intersection<br>of data &amp; intelligence</h2>
   <div class="about-grid">
     <div>
-      <img src="images/photo.PNG" class="about-img" alt="Smit Velani profile photo" onerror="this.parentNode.innerHTML='<div class=about-img-placeholder>SV</div>'">
+      <img src="images/photo.PNG" class="about-img" alt="Smit Velani profile photo" onerror="this.parentNode.innerHTML='&lt;div class=about-img-placeholder&gt;SV&lt;/div&gt;'">
     </div>
     <div class="about-text">
       <p>I'm an MS Data Science student at Northeastern University, Boston, with a strong foundation in machine learning, deep learning, and AI engineering.</p>
@@ -413,20 +413,20 @@
       <div class="about-tags">
         <span class="tag">Machine Learning</span>
         <span class="tag">Deep Learning</span>
-        <span class="tag">NLP & LLMs</span>
+        <span class="tag">NLP &amp; LLMs</span>
         <span class="tag">Reinforcement Learning</span>
         <span class="tag">Data Analytics</span>
         <span class="tag">MLOps</span>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
-<section id="experience">
+<div id="experience" class="page-section">
   <div class="section-label">Work Experience</div>
-  <div class="section-title">Where I've worked</div>
+  <h2 class="section-title">Where I've worked</h2>
   <div class="exp-grid">
 
     <div class="exp-card">
@@ -437,7 +437,7 @@
         </div>
         <div class="exp-date">Jan 2025 – Apr 2025</div>
       </div>
-      <div style="font-size:0.85rem; color: var(--muted); margin-bottom:0.5rem;">Stock Market Data Analysis System · Python | Pandas | NumPy | Tkinter | yfinance</div>
+      <p style="font-size:0.85rem; color: var(--muted); margin-bottom:0.5rem;">Stock Market Data Analysis System · Python | Pandas | NumPy | Tkinter | yfinance</p>
       <ul class="exp-bullets">
         <li>Integrated Yahoo Finance API to fetch real-time OHLCV data for 4+ stocks across 250+ daily records</li>
         <li>Engineered 11 technical indicators from scratch (SMA, EMA, Bollinger Bands, RSI, MACD) using vectorised NumPy, no external TA library</li>
@@ -453,7 +453,7 @@
         </div>
         <div class="exp-date">Jun 2024 – Aug 2024</div>
       </div>
-      <div style="font-size:0.85rem; color: var(--muted); margin-bottom:0.5rem;">Plant Health Prediction System · Python | TensorFlow | OpenCV | Flask | Keras</div>
+      <p style="font-size:0.85rem; color: var(--muted); margin-bottom:0.5rem;">Plant Health Prediction System · Python | TensorFlow | OpenCV | Flask | Keras</p>
       <ul class="exp-bullets">
         <li>Deployed MobileNetV2 Transfer Learning CNN achieving 89% diagnostic accuracy across 15 disease classes</li>
         <li>Built OpenCV preprocessing pipeline with HSV-based lesion analysis and two-phase training strategy</li>
@@ -462,13 +462,13 @@
     </div>
 
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
-<section id="projects">
+<div id="projects" class="page-section">
   <div class="section-label">Projects</div>
-  <div class="section-title">Things I've built</div>
+  <h2 class="section-title">Things I've built</h2>
   <p class="section-subtitle">A collection of ML, AI, and data science projects — each targeting a different area of the field.</p>
 
   <div class="projects-grid">
@@ -476,7 +476,7 @@
     <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" class="project-card">
       <div class="project-tag">NLP · LLM · RAG</div>
       <div class="project-title">RAG PDF Chatbot</div>
-      <div class="project-desc">End-to-end RAG pipeline that lets you upload any PDF and ask questions. Uses FAISS vector database and Google Gemini 2.5 Flash for context-grounded answers with semantic search.</div>
+      <p class="project-desc">End-to-end RAG pipeline that lets you upload any PDF and ask questions. Uses FAISS vector database and Google Gemini 2.5 Flash for context-grounded answers with semantic search.</p>
       <div class="project-stack">
         <span class="stack-pill">LangChain</span>
         <span class="stack-pill">FAISS</span>
@@ -490,7 +490,7 @@
     <a href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" class="project-card">
       <div class="project-tag">Reinforcement Learning</div>
       <div class="project-title">Multi-Agent Atari Boxing DQN</div>
-      <div class="project-desc">Two competing DQN agents trained to play Atari Boxing using PettingZoo and PyTorch. Achieved 62%/38% win-rate split over 200 episodes on T4 GPU with Experience Replay and Target Networks.</div>
+      <p class="project-desc">Two competing DQN agents trained to play Atari Boxing using PettingZoo and PyTorch. Achieved 62%/38% win-rate split over 200 episodes on T4 GPU with Experience Replay and Target Networks.</p>
       <div class="project-stack">
         <span class="stack-pill">PyTorch</span>
         <span class="stack-pill">PettingZoo</span>
@@ -504,7 +504,7 @@
     <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-card">
       <div class="project-tag">MLOps · ML Pipeline</div>
       <div class="project-title">Loan Default Prediction with MLflow</div>
-      <div class="project-desc">Trained 4 ML models on 32,581 real loan records tracked via MLflow. XGBoost achieved 93.4% accuracy and AUC 0.947. Identified top predictors via feature importance analysis.</div>
+      <p class="project-desc">Trained 4 ML models on 32,581 real loan records tracked via MLflow. XGBoost achieved 93.4% accuracy and AUC 0.947. Identified top predictors via feature importance analysis.</p>
       <div class="project-stack">
         <span class="stack-pill">XGBoost</span>
         <span class="stack-pill">MLflow</span>
@@ -517,7 +517,7 @@
     <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-card">
       <div class="project-tag">Data Visualization</div>
       <div class="project-title">DataPulse Dashboard</div>
-      <div class="project-desc">Fully interactive dark-themed analytics dashboard using D3.js v7 with 7 chart types across 11,900+ records from 3 datasets — no backend required.</div>
+      <p class="project-desc">Fully interactive dark-themed analytics dashboard using D3.js v7 with 7 chart types across 11,900+ records from 3 datasets — no backend required.</p>
       <div class="project-stack">
         <span class="stack-pill">D3.js v7</span>
         <span class="stack-pill">Python</span>
@@ -531,7 +531,7 @@
     <a href="https://github.com/Smit-Velani/customer_behavior" target="_blank" class="project-card">
       <div class="project-tag">Data Analytics · SQL</div>
       <div class="project-title">Customer Shopping Behavior</div>
-      <div class="project-desc">End-to-end analytics project on 3,900 retail transactions using SQL CTEs and window functions. Built Power BI dashboard revealing Young Adults as top segment ($62,143).</div>
+      <p class="project-desc">End-to-end analytics project on 3,900 retail transactions using SQL CTEs and window functions. Built Power BI dashboard revealing Young Adults as top segment ($62,143).</p>
       <div class="project-stack">
         <span class="stack-pill">PostgreSQL</span>
         <span class="stack-pill">Python</span>
@@ -542,13 +542,13 @@
     </a>
 
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
-<section id="skills">
+<div id="skills" class="page-section">
   <div class="section-label">Technical Skills</div>
-  <div class="section-title">My toolkit</div>
+  <h2 class="section-title">My toolkit</h2>
   <div class="skills-grid">
 
     <div class="skill-card">
@@ -564,7 +564,7 @@
     </div>
 
     <div class="skill-card">
-      <div class="skill-category">ML & AI</div>
+      <div class="skill-category">ML &amp; AI</div>
       <div class="skill-list">
         <span class="skill-item">PyTorch</span>
         <span class="skill-item">TensorFlow</span>
@@ -579,7 +579,7 @@
     </div>
 
     <div class="skill-card">
-      <div class="skill-category">Data & Analytics</div>
+      <div class="skill-category">Data &amp; Analytics</div>
       <div class="skill-list">
         <span class="skill-item">Pandas</span>
         <span class="skill-item">NumPy</span>
@@ -592,7 +592,7 @@
     </div>
 
     <div class="skill-card">
-      <div class="skill-category">Tools & Databases</div>
+      <div class="skill-category">Tools &amp; Databases</div>
       <div class="skill-list">
         <span class="skill-item">PostgreSQL</span>
         <span class="skill-item">MySQL</span>
@@ -605,25 +605,25 @@
     </div>
 
   </div>
-</section>
+</div>
 
 <div class="divider"></div>
 
-<section id="contact">
+<div id="contact" class="page-section">
   <div class="section-label">Contact</div>
   <div class="contact-wrap">
-    <h3>Let's work together</h3>
+    <h2 class="contact-wrap-title">Let's work together</h2>
     <p>I'm actively looking for Data Science internship opportunities for 2027. Feel free to reach out!</p>
     <div class="contact-links">
-      <a href="mailto:velanismitkumar@gmail.com" class="contact-btn">✉ velanismitkumar@gmail.com</a>
+      <a href="mailto:velanismitkumar@gmail.com" class="contact-btn">&#9993; velanismitkumar@gmail.com</a>
       <a href="https://github.com/Smit-Velani" target="_blank" class="contact-btn">GitHub</a>
       <a href="https://www.linkedin.com/in/smit-velani" target="_blank" class="contact-btn">LinkedIn</a>
     </div>
   </div>
-</section>
+</div>
 
 <footer>
-  <p>Designed &amp; built by Smitkumar Velani · Boston, MA · 2026</p>
+  <p>Designed &amp; built by Smitkumar Velani &middot; Boston, MA &middot; 2026</p>
 </footer>
 
 <script type="module" src="js/main.js"></script>
