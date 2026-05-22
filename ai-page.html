@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Smitkumar Jayendrakumar Velani" />
+    <meta
+      name="description"
+      content="The Future of Data Science — an AI-generated article exploring trends, skills, and opportunities in Data Science for 2025 and beyond."
+    />
+    <title>The Future of Data Science | Smit Velani</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #ffffff;
+        --bg2: #f8fafc;
+        --bg3: #f1f5f9;
+        --accent: #2563eb;
+        --accent2: #0ea5e9;
+        --text: #0f172a;
+        --muted: #64748b;
+        --border: rgba(0, 0, 0, 0.08);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      /* NAVBAR */
+      nav {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 1.2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-logo {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      /* AI BADGE */
+      .ai-banner {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border-bottom: 1px solid #f59e0b;
+        padding: 0.75rem 2rem;
+        text-align: center;
+        font-size: 0.88rem;
+        color: #92400e;
+        font-weight: 500;
+      }
+
+      .ai-banner strong {
+        color: #78350f;
+      }
+
+      /* HERO */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.04),
+          rgba(14, 165, 233, 0.04)
+        );
+        padding: 5rem 2rem 4rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(37, 99, 235, 0.07);
+        border: 1px solid rgba(37, 99, 235, 0.15);
+        padding: 0.4rem 1rem;
+        border-radius: 100px;
+        font-size: 0.82rem;
+        color: var(--accent);
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.04em;
+      }
+
+      .hero h1 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.2rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      .hero h1 span {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-desc {
+        font-size: 1.1rem;
+        color: var(--muted);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        font-weight: 300;
+      }
+
+      .hero-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .hero-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      /* MAIN CONTENT */
+      .container {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      /* SECTION */
+      .article-section {
+        margin-bottom: 4rem;
+      }
+
+      .section-number {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+
+      .article-section h2 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        color: var(--text);
+        line-height: 1.2;
+      }
+
+      .article-section p {
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.85;
+        margin-bottom: 1.2rem;
+      }
+
+      .article-section p strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* HIGHLIGHT BOX */
+      .highlight-box {
+        background: rgba(37, 99, 235, 0.04);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 8px 8px 0;
+        padding: 1.2rem 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .highlight-box p {
+        margin: 0;
+        font-style: italic;
+        color: var(--text);
+      }
+
+      /* TREND CARDS */
+      .trend-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .trend-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.2rem;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+
+      .trend-card:hover {
+        border-color: rgba(37, 99, 235, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .trend-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .trend-title {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+        color: var(--text);
+      }
+
+      .trend-desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* SKILLS LIST */
+      .skills-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin: 1.2rem 0;
+      }
+
+      .skills-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .skills-list li::before {
+        content: "▸";
+        color: var(--accent);
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+        flex-shrink: 0;
+      }
+
+      .skills-list li strong {
+        color: var(--text);
+      }
+
+      /* STAT ROW */
+      .stat-row {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0;
+      }
+
+      .stat-item {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        text-align: center;
+        flex: 1;
+        min-width: 140px;
+      }
+
+      .stat-num {
+        font-family: "Syne", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.2rem;
+      }
+
+      /* DIVIDER */
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: var(--border);
+        margin: 3rem 0;
+      }
+
+      /* AI DISCLOSURE */
+      .ai-disclosure {
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.04),
+          rgba(14, 165, 233, 0.04)
+        );
+        border: 1px solid rgba(37, 99, 235, 0.15);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-top: 4rem;
+      }
+
+      .ai-disclosure h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        color: var(--text);
+      }
+
+      .ai-disclosure p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+        line-height: 1.7;
+      }
+
+      .ai-disclosure p:last-child {
+        margin-bottom: 0;
+      }
+
+      .ai-tag {
+        display: inline-block;
+        background: rgba(37, 99, 235, 0.08);
+        border: 1px solid rgba(37, 99, 235, 0.15);
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 0.2rem 0.7rem;
+        border-radius: 100px;
+        margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
+      }
+
+      /* FOOTER */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+        background: var(--bg2);
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hero-meta {
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <a href="index.html" class="nav-logo">SV</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- AI BANNER -->
+    <div class="ai-banner">
+      🤖 <strong>AI-Generated Content</strong> — This article was generated
+      using Claude Sonnet 4.6 by Anthropic. Content has been reviewed and
+      formatted by Smitkumar Velani.
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-label">📊 Data Science Insights</div>
+      <h1>The Future of <span>Data Science</span></h1>
+      <p class="hero-desc">
+        Exploring the trends, technologies, and skills shaping the next era of
+        data-driven decision making.
+      </p>
+      <div class="hero-meta">
+        <span>📅 2026</span>
+        <span>⏱ 8 min read</span>
+        <span>🤖 AI Generated</span>
+        <span>✍️ Curated by Smit Velani</span>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+      <!-- SECTION 1 -->
+      <div class="article-section">
+        <div class="section-number">Section 01</div>
+        <h2>The Landscape is Shifting Fast</h2>
+        <p>
+          Data Science has evolved dramatically over the past decade. What began
+          as a discipline centered around statistical modeling and SQL queries
+          has transformed into one of the most dynamic fields in technology.
+          Today, data scientists are expected to understand not just data, but
+          the full pipeline from raw ingestion to deployed AI systems.
+        </p>
+        <p>
+          The rise of <strong>Large Language Models (LLMs)</strong> has
+          fundamentally changed what organizations expect from their data teams.
+          It is no longer enough to build a model — you must understand how to
+          integrate AI into products, scale pipelines, and explain decisions to
+          non-technical stakeholders.
+        </p>
+        <div class="highlight-box">
+          <p>
+            "By 2027, the global data science platform market is projected to
+            reach $322 billion, growing at a compound annual rate of 27.7%. The
+            demand for skilled data professionals will far outpace supply."
+          </p>
+        </div>
+        <p>
+          This shift means the data scientist of 2025 looks very different from
+          one of 2015. The role increasingly demands software engineering
+          discipline, cloud fluency, and the ability to work with generative AI
+          tools responsibly and effectively.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 2 -->
+      <div class="article-section">
+        <div class="section-number">Section 02</div>
+        <h2>Key Trends Defining the Field</h2>
+        <p>
+          Several major trends are reshaping how data science is practiced
+          across industries. Understanding these trends is essential for anyone
+          building a career in this space.
+        </p>
+
+        <div class="trend-grid">
+          <div class="trend-card">
+            <div class="trend-icon">🧠</div>
+            <div class="trend-title">LLMs & Foundation Models</div>
+            <p class="trend-desc">
+              Large language models are being fine-tuned and embedded into every
+              industry vertical, from healthcare to finance.
+            </p>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">⚙️</div>
+            <div class="trend-title">MLOps & Automation</div>
+            <p class="trend-desc">
+              Automated pipelines for model training, monitoring, and deployment
+              are becoming standard practice at scale.
+            </p>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">🤖</div>
+            <div class="trend-title">AutoML</div>
+            <p class="trend-desc">
+              Tools that automate feature engineering and model selection are
+              democratizing ML for non-experts.
+            </p>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">🔍</div>
+            <div class="trend-title">RAG Pipelines</div>
+            <p class="trend-desc">
+              Retrieval-Augmented Generation is enabling AI systems to work with
+              private, up-to-date knowledge bases.
+            </p>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">☁️</div>
+            <div class="trend-title">Cloud-Native ML</div>
+            <p class="trend-desc">
+              AWS SageMaker, Google Vertex AI, and Azure ML are replacing
+              on-premise training infrastructure.
+            </p>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">🛡️</div>
+            <div class="trend-title">Responsible AI</div>
+            <p class="trend-desc">
+              Explainability, fairness, and bias detection are now core
+              requirements in enterprise AI projects.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 3 -->
+      <div class="article-section">
+        <div class="section-number">Section 03</div>
+        <h2>Skills Data Scientists Need in 2025+</h2>
+        <p>
+          The modern data scientist needs a broader toolkit than ever before.
+          Technical depth still matters, but it must be paired with engineering
+          discipline and business communication skills.
+        </p>
+
+        <ul class="skills-list">
+          <li>
+            <span
+              ><strong>Python & SQL mastery</strong> — the foundation remains
+              unchanged. Python for modeling, SQL for data retrieval and
+              transformation at scale.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Machine Learning Engineering</strong> — understanding how
+              to productionize models, not just train them. Docker, APIs, and CI/CD
+              pipelines are essential.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>LLM Integration</strong> — knowing how to use APIs like
+              OpenAI, Anthropic, and Gemini, and how to build RAG systems with
+              LangChain and vector databases.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Cloud Platforms</strong> — familiarity with at least one
+              major cloud provider (AWS, GCP, or Azure) and their ML services is
+              increasingly non-negotiable.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>MLOps Tools</strong> — experiment tracking with MLflow,
+              model registries, and monitoring in production with tools like
+              Evidently AI.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Data Storytelling</strong> — the ability to communicate
+              findings clearly to non-technical audiences remains one of the most
+              underrated and valuable skills.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Statistical Reasoning</strong> — A/B testing, causal
+              inference, and Bayesian thinking separate strong data scientists
+              from those who just run models.</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 4 -->
+      <div class="article-section">
+        <div class="section-number">Section 04</div>
+        <h2>Career Opportunities & Industry Impact</h2>
+        <p>
+          Data Science roles are expanding across every sector. While
+          traditional tech companies remain major employers, the fastest growth
+          is happening in healthcare, finance, manufacturing, and climate tech.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-item">
+            <span class="stat-num">35%</span>
+            <div class="stat-label">Job growth projected by 2032 (BLS)</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">$124K</span>
+            <div class="stat-label">Median US salary for Data Scientists</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">4M+</span>
+            <div class="stat-label">Data Science jobs globally by 2026</div>
+          </div>
+        </div>
+
+        <p>
+          <strong>Healthcare</strong> is seeing rapid adoption of predictive
+          models for patient outcomes, drug discovery acceleration, and medical
+          imaging AI. Data scientists with domain knowledge in biology or
+          clinical research are in particularly high demand.
+        </p>
+        <p>
+          <strong>Financial services</strong> continue to invest heavily in
+          fraud detection, risk modeling, and algorithmic trading systems.
+          Meanwhile, <strong>climate tech</strong> is emerging as a major growth
+          area, using ML for energy optimization, carbon tracking, and climate
+          modeling.
+        </p>
+        <p>
+          The clearest career path forward involves building a strong technical
+          foundation early, then specializing in a domain where data can have
+          real-world impact. The most successful data scientists of the next
+          decade will be those who combine technical skill with deep domain
+          expertise and strong communication ability.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 5 -->
+      <div class="article-section">
+        <div class="section-number">Section 05</div>
+        <h2>What This Means for Students Today</h2>
+        <p>
+          For students entering the field now, the message is clear: build broad
+          foundations first, then go deep in areas that excite you. The days of
+          a single specialization being enough are over — versatility and
+          adaptability are the new competitive advantages.
+        </p>
+        <p>
+          Focus on building real projects that solve real problems. Employers in
+          2025 care far less about GPA and far more about what you have shipped,
+          what data you have worked with, and what impact your work has had.
+          GitHub repositories, Kaggle competitions, and personal projects
+          communicate skill better than any credential alone.
+        </p>
+        <div class="highlight-box">
+          <p>
+            The future belongs to data scientists who can think like engineers,
+            communicate like business analysts, and learn like researchers.
+            Build all three, and opportunities will follow.
+          </p>
+        </div>
+      </div>
+
+      <!-- AI DISCLOSURE -->
+      <div class="ai-disclosure">
+        <h3>🤖 About This Article</h3>
+        <p>
+          This article was generated using Generative AI as part of CS5610 Web
+          Development at Northeastern University. The content has been reviewed,
+          curated, and formatted by Smitkumar Velani.
+        </p>
+        <p>
+          <strong>Tool:</strong> Claude Sonnet 4.6 by Anthropic &nbsp;|&nbsp;
+          <strong>Prompt used:</strong> "Write an educational article about the
+          future of Data Science covering current trends in LLMs, AutoML,
+          MLOps, skills needed in 2025 and beyond, and career opportunities."
+        </p>
+        <div style="margin-top: 0.8rem">
+          <span class="ai-tag">Claude Sonnet 4.6</span>
+          <span class="ai-tag">Anthropic</span>
+          <span class="ai-tag">AI-Generated Content</span>
+          <span class="ai-tag">CS5610</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        <a href="index.html">← Back to Portfolio</a> &nbsp;·&nbsp;
+        Smitkumar Jayendrakumar Velani &nbsp;·&nbsp; CS5610 Web Development
+        &nbsp;·&nbsp; Northeastern University
+      </p>
+    </footer>
+  </body>
+</html>
