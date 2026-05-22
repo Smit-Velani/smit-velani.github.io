@@ -3,6 +3,7 @@
 > A personal portfolio website built with vanilla HTML5, CSS3, and ES6+ JavaScript. Designed to showcase projects, skills, and experience to potential employers and recruiters in the Data Science field.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-2563EB?style=for-the-badge&logo=github)](https://smit-velani.github.io)
+[![AI Page](https://img.shields.io/badge/AI%20Page-Future%20of%20Data%20Science-F59E0B?style=for-the-badge)](https://smit-velani.github.io/ai-page.html)
 [![GitHub](https://img.shields.io/badge/GitHub-Smit--Velani-181717?style=for-the-badge&logo=github)](https://github.com/Smit-Velani)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-smit--velani-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/smit-velani)
 
@@ -29,9 +30,9 @@ Khoury College of Computer Sciences, Northeastern University
 Build a professional personal portfolio website using only vanilla HTML5, CSS3, and ES6+ JavaScript — no frameworks, no component libraries, no jQuery. The site showcases my academic background, technical skills, work experience, and Data Science projects to potential employers and recruiters.
 
 The portfolio includes:
-- 🏠 **Home page** — Hero with typewriter animation, About, Experience, Projects preview, Skills, Contact
-- 📁 **Projects page** — Full detailed descriptions of all 5 ML/AI projects
-- 🤖 **AI-generated page** — The Future of Data Science, generated with Claude AI
+- 🏠 **[Home Page](https://smit-velani.github.io)** — Hero with typewriter animation, About, Experience, Projects preview, Skills, Contact
+- 📁 **[Projects Page](https://smit-velani.github.io/projects.html)** — Full detailed descriptions of all 5 ML/AI projects
+- 🤖 **[AI-Generated Page](https://smit-velani.github.io/ai-page.html)** — The Future of Data Science, generated with Claude AI
 
 ---
 
@@ -120,10 +121,6 @@ npx eslint js/main.js
 npx prettier --write .
 ```
 
-### Deployment
-
-The site is automatically deployed via **GitHub Pages** from the `main` branch.
-
 ---
 
 ## 🤖 GenAI Tools
@@ -140,11 +137,11 @@ This project used **Generative AI** in the following ways:
 
 **How it was used:**
 - **Design Document** — Claude was used to help structure the design document including user personas, user stories, and wireframe descriptions. All technical decisions and project details are my own.
-- **ai-page.html** — The content on the AI-generated page ("The Future of Data Science") was generated using Claude with the following prompt: *"Write an educational article about the future of Data Science covering current trends in LLMs, AutoML, MLOps, skills needed in 2025 and beyond, and career opportunities."* The content was then reviewed and formatted by me.
+- **ai-page.html** — The content on the AI-generated page was generated using Claude with the prompt: *"Write an educational article about the future of Data Science covering current trends in LLMs, AutoML, MLOps, skills needed in 2025 and beyond, and career opportunities."*
 - **README** — Claude assisted in structuring this README file. All project-specific details, links, and descriptions are my own.
 
 **What was NOT AI generated:**
-- All HTML, CSS, and JavaScript code in `index.html`, `projects.html`, `css/style.css`, and `js/main.js`
+- All HTML, CSS, and JavaScript code
 - Project descriptions and technical achievements
 - Design decisions and visual layout
 
@@ -181,7 +178,7 @@ This project used **Generative AI** in the following ways:
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the [LICENSE](https://github.com/Smit-Velani/smit-velani.github.io/blob/main/LICENSE) file for details.
 
 ---
 
