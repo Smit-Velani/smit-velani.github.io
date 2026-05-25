@@ -139,7 +139,7 @@ The site is automatically deployed via **GitHub Pages** from the `main` branch a
 
 ## 🎥 Demo Video
 
-📹 [Watch Demo on YouTube](#) ← Add your YouTube link here after recording
+📹 [Watch Demo on YouTube](https://youtu.be/EZMPWBFhZNY) 
 
 ---
 
