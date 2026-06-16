@@ -242,6 +242,11 @@
     box-shadow: 0 8px 32px rgba(37,99,235,0.08);
   }
 
+  .project-card.featured {
+    border-color: rgba(37,99,235,0.2);
+    background: linear-gradient(135deg, rgba(37,99,235,0.02), rgba(14,165,233,0.02));
+  }
+
   .project-tag {
     display: inline-block;
     background: rgba(37,99,235,0.07); border: 1px solid rgba(37,99,235,0.12);
@@ -249,6 +254,11 @@
     padding: 0.2rem 0.6rem; border-radius: 4px;
     letter-spacing: 0.06em; text-transform: uppercase;
     margin-bottom: 0.8rem;
+  }
+
+  .project-tag.featured-tag {
+    background: rgba(37,99,235,0.12);
+    border-color: rgba(37,99,235,0.25);
   }
 
   .project-title {
@@ -377,21 +387,39 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="ai-page.html">AI Page</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <div class="hero">
   <div class="hero-content">
+    <div class="hero-badge">Available for DS Internships 2027</div>
     <h1>Smitkumar<br><span>Velani</span></h1>
     <p class="hero-desc">MS Data Science @ Northeastern University.</p>
     <p class="hero-desc">I <span id="typewriter"></span><span class="cursor">|</span></p>
     <div class="hero-cta">
-      <a href="projects.html" class="btn-primary">View Projects ↓</a>
+      <a href="#projects" class="btn-primary">View Projects ↓</a>
       <a href="resume.pdf" download class="btn-secondary">Download Resume</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">4.0</div>
+        <div class="stat-label">GPA at NEU</div>
+      </div>
+      <div>
+        <div class="stat-num">2</div>
+        <div class="stat-label">Internships</div>
+      </div>
+      <div>
+        <div class="stat-num">6+</div>
+        <div class="stat-label">ML Projects</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Technologies</div>
+      </div>
     </div>
   </div>
 </div>
@@ -473,6 +501,21 @@
 
   <div class="projects-grid">
 
+    <a href="https://github.com/Smit-Velani/Global-Economic-Intelligence-Dashboard" target="_blank" class="project-card featured">
+      <div class="project-tag featured-tag">AI · ML · Full-Stack</div>
+      <div class="project-title">Global Economic Intelligence Dashboard</div>
+      <p class="project-desc">Real-time platform for 190+ countries with AI summaries, ARIMA forecasting, K-Means clustering, recession prediction, live news sentiment, animated GDP race, and WebSocket updates.</p>
+      <div class="project-stack">
+        <span class="stack-pill">Flask</span>
+        <span class="stack-pill">D3.js</span>
+        <span class="stack-pill">Groq LLaMA</span>
+        <span class="stack-pill">Scikit-Learn</span>
+        <span class="stack-pill">ARIMA</span>
+        <span class="stack-pill">Socket.IO</span>
+      </div>
+      <span class="project-link">View on GitHub →</span>
+    </a>
+
     <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" class="project-card">
       <div class="project-tag">NLP · LLM · RAG</div>
       <div class="project-title">RAG PDF Chatbot</div>
@@ -483,6 +526,19 @@
         <span class="stack-pill">HuggingFace</span>
         <span class="stack-pill">Gemini API</span>
         <span class="stack-pill">PyPDF2</span>
+      </div>
+      <span class="project-link">View on GitHub →</span>
+    </a>
+
+    <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-card">
+      <div class="project-tag">MLOps · ML Pipeline</div>
+      <div class="project-title">Loan Default Prediction with MLflow</div>
+      <p class="project-desc">Trained 4 ML models on 32,581 real loan records tracked via MLflow. XGBoost achieved 93.4% accuracy and AUC 0.947. Identified top predictors via feature importance analysis.</p>
+      <div class="project-stack">
+        <span class="stack-pill">XGBoost</span>
+        <span class="stack-pill">MLflow</span>
+        <span class="stack-pill">Scikit-Learn</span>
+        <span class="stack-pill">Pandas</span>
       </div>
       <span class="project-link">View on GitHub →</span>
     </a>
@@ -501,23 +557,10 @@
       <span class="project-link">View on GitHub →</span>
     </a>
 
-    <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-card">
-      <div class="project-tag">MLOps · ML Pipeline</div>
-      <div class="project-title">Loan Default Prediction with MLflow</div>
-      <p class="project-desc">Trained 4 ML models on 32,581 real loan records tracked via MLflow. XGBoost achieved 93.4% accuracy and AUC 0.947. Identified top predictors via feature importance analysis.</p>
-      <div class="project-stack">
-        <span class="stack-pill">XGBoost</span>
-        <span class="stack-pill">MLflow</span>
-        <span class="stack-pill">Scikit-Learn</span>
-        <span class="stack-pill">Pandas</span>
-      </div>
-      <span class="project-link">View on GitHub →</span>
-    </a>
-
     <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-card">
       <div class="project-tag">Data Visualization</div>
       <div class="project-title">DataPulse Dashboard</div>
-      <p class="project-desc">Fully interactive dark-themed analytics dashboard using D3.js v7 with 7 chart types across 11,900+ records from 3 datasets — no backend required.</p>
+      <p class="project-desc">Fully interactive analytics dashboard using D3.js v7 with 7 chart types across 11,900+ records from 3 datasets. No backend or framework required.</p>
       <div class="project-stack">
         <span class="stack-pill">D3.js v7</span>
         <span class="stack-pill">Python</span>
@@ -573,8 +616,8 @@
         <span class="skill-item">LangChain</span>
         <span class="skill-item">XGBoost</span>
         <span class="skill-item">RAG</span>
-        <span class="skill-item">DQN</span>
-        <span class="skill-item">CNN</span>
+        <span class="skill-item">ARIMA</span>
+        <span class="skill-item">K-Means</span>
       </div>
     </div>
 
@@ -587,7 +630,7 @@
         <span class="skill-item">Seaborn</span>
         <span class="skill-item">Power BI</span>
         <span class="skill-item">D3.js</span>
-        <span class="skill-item">Excel</span>
+        <span class="skill-item">Plotly</span>
       </div>
     </div>
 
@@ -598,6 +641,7 @@
         <span class="skill-item">MySQL</span>
         <span class="skill-item">MongoDB</span>
         <span class="skill-item">FAISS</span>
+        <span class="skill-item">MLflow</span>
         <span class="skill-item">Flask</span>
         <span class="skill-item">Git/GitHub</span>
         <span class="skill-item">Jupyter</span>
@@ -626,7 +670,43 @@
   <p>Designed &amp; built by Smitkumar Velani &middot; Boston, MA &middot; 2026</p>
 </footer>
 
-<script type="module" src="js/main.js"></script>
+<script>
+  const phrases = [
+    "build LLM-powered RAG chatbots.",
+    "train reinforcement learning agents.",
+    "turn raw data into decisions.",
+    "build deep learning systems.",
+    "love solving real-world problems with ML."
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const el = document.getElementById('typewriter');
+
+  function type() {
+    const current = phrases[phraseIndex];
+    if (!isDeleting) {
+      el.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === current.length) {
+        isDeleting = true;
+        setTimeout(type, 2000);
+        return;
+      }
+    } else {
+      el.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, isDeleting ? 40 : 60);
+  }
+
+  type();
+</script>
 
 </body>
 </html>
