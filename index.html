@@ -235,6 +235,7 @@
     display: flex; flex-direction: column;
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     text-decoration: none; color: inherit;
+    cursor: pointer;
   }
   .project-card:hover {
     border-color: rgba(37,99,235,0.25);
@@ -278,11 +279,24 @@
     font-size: 0.75rem; color: var(--muted);
   }
 
+  .project-links {
+    display: flex; align-items: center; gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
   .project-link {
     display: flex; align-items: center; gap: 0.4rem;
     color: var(--accent); font-size: 0.85rem; font-weight: 500;
-    margin-top: 1.2rem; text-decoration: none;
+    text-decoration: none;
   }
+
+  .project-link-gh {
+    display: flex; align-items: center; gap: 0.4rem;
+    color: var(--muted); font-size: 0.82rem; font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .project-link-gh:hover { color: var(--text); }
 
   .skills-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -395,7 +409,7 @@
 
 <div class="hero">
   <div class="hero-content">
-    <div class="hero-badge">Available for DS Internships 2027</div>
+    <div class="hero-badge">Available for DS Co-op January 2027</div>
     <h1>Smitkumar<br><span>Velani</span></h1>
     <p class="hero-desc">MS Data Science @ Northeastern University.</p>
     <p class="hero-desc">I <span id="typewriter"></span><span class="cursor">|</span></p>
@@ -434,17 +448,17 @@
       <img src="images/photo.PNG" class="about-img" alt="Smit Velani profile photo" onerror="this.parentNode.innerHTML='&lt;div class=about-img-placeholder&gt;SV&lt;/div&gt;'">
     </div>
     <div class="about-text">
-      <p>I'm an MS Data Science student at Northeastern University, Boston, with a strong foundation in machine learning, deep learning, and AI engineering.</p>
-      <p>My work spans multiple domains from training reinforcement learning agents to play Atari games, to building RAG pipelines that let you chat with any PDF using large language models.</p>
-      <p>Previously interned at IBM SkillsBuild (CSRBOX) building a plant disease detection system with 89% accuracy, and at Unified Mentor building a full stock market analysis platform.</p>
-      <p>Currently seeking Data Science internship opportunities for 2027 where I can apply my skills in ML, NLP, and data engineering to real-world problems.</p>
+      <p>I'm an MS Data Science student at Northeastern University, Boston, building production-grade ML systems and LLM-powered applications from scratch.</p>
+      <p>My work spans multiple domains — from building AutoML platforms with cost-aware model selection and SHAP explainability, to designing 6-layer AI pipelines that deliver personalized daily briefings, to building RAG systems that let you chat with any PDF.</p>
+      <p>Previously interned at IBM SkillsBuild (CSRBOX) building a plant disease detection system with 89% accuracy, and at Unified Mentor building a full stock market analysis platform with 11 technical indicators.</p>
+      <p>Currently seeking Data Science Co-op opportunities for January 2027 in Boston.</p>
       <div class="about-tags">
         <span class="tag">Machine Learning</span>
         <span class="tag">Deep Learning</span>
         <span class="tag">NLP &amp; LLMs</span>
-        <span class="tag">Reinforcement Learning</span>
-        <span class="tag">Data Analytics</span>
+        <span class="tag">AutoML</span>
         <span class="tag">MLOps</span>
+        <span class="tag">Data Analytics</span>
       </div>
     </div>
   </div>
@@ -501,7 +515,25 @@
 
   <div class="projects-grid">
 
-    <a href="https://github.com/Smit-Velani/Global-Economic-Intelligence-Dashboard" target="_blank" class="project-card featured">
+    <a href="projects.html#idp" class="project-card featured">
+      <div class="project-tag featured-tag">AutoML · MLOps · Full-Stack</div>
+      <div class="project-title">Intelligent Data Platform (IDP)</div>
+      <p class="project-desc">AutoML platform that uploads any CSV and automatically cleans data, selects the best model using cost-aware optimization, explains predictions with SHAP, detects drift with PSI, and generates a PDF report via LLaMA. AUC-ROC 0.981 on 284K fraud dataset.</p>
+      <div class="project-stack">
+        <span class="stack-pill">FastAPI</span>
+        <span class="stack-pill">React</span>
+        <span class="stack-pill">XGBoost</span>
+        <span class="stack-pill">SHAP</span>
+        <span class="stack-pill">Groq LLaMA</span>
+        <span class="stack-pill">MLflow</span>
+      </div>
+      <div class="project-links">
+        <span class="project-link">View Details →</span>
+        <a href="https://github.com/Smit-Velani/intelligent-data-platform" target="_blank" class="project-link-gh" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
+    </a>
+
+    <a href="projects.html#dashboard" class="project-card featured">
       <div class="project-tag featured-tag">AI · ML · Full-Stack</div>
       <div class="project-title">Global Economic Intelligence Dashboard</div>
       <p class="project-desc">Real-time platform for 190+ countries with AI summaries, ARIMA forecasting, K-Means clustering, recession prediction, live news sentiment, animated GDP race, and WebSocket updates.</p>
@@ -513,10 +545,30 @@
         <span class="stack-pill">ARIMA</span>
         <span class="stack-pill">Socket.IO</span>
       </div>
-      <span class="project-link">View on GitHub →</span>
+      <div class="project-links">
+        <span class="project-link">View Details →</span>
+        <a href="https://github.com/Smit-Velani/Global-Economic-Intelligence-Dashboard" target="_blank" class="project-link-gh" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
     </a>
 
-    <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" class="project-card">
+    <a href="projects.html#dailybrief" class="project-card">
+      <div class="project-tag">AI Pipeline · Deployed</div>
+      <div class="project-title">DailyBrief AI</div>
+      <p class="project-desc">6-layer AI pipeline ingesting Gmail and Google Calendar APIs to auto-generate personalized daily intelligence briefs. XGBoost priority scoring, Groq LLaMA 3.3 generation, deployed 24/7 on Railway.</p>
+      <div class="project-stack">
+        <span class="stack-pill">Groq LLaMA</span>
+        <span class="stack-pill">XGBoost</span>
+        <span class="stack-pill">Gmail API</span>
+        <span class="stack-pill">MongoDB</span>
+        <span class="stack-pill">Railway</span>
+      </div>
+      <div class="project-links">
+        <span class="project-link">View Details →</span>
+        <a href="https://github.com/Smit-Velani/dailybrief-ai" target="_blank" class="project-link-gh" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
+    </a>
+
+    <a href="projects.html#rag" class="project-card">
       <div class="project-tag">NLP · LLM · RAG</div>
       <div class="project-title">RAG PDF Chatbot</div>
       <p class="project-desc">End-to-end RAG pipeline that lets you upload any PDF and ask questions. Uses FAISS vector database and Google Gemini 2.5 Flash for context-grounded answers with semantic search.</p>
@@ -527,37 +579,13 @@
         <span class="stack-pill">Gemini API</span>
         <span class="stack-pill">PyPDF2</span>
       </div>
-      <span class="project-link">View on GitHub →</span>
-    </a>
-
-    <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-card">
-      <div class="project-tag">MLOps · ML Pipeline</div>
-      <div class="project-title">Loan Default Prediction with MLflow</div>
-      <p class="project-desc">Trained 4 ML models on 32,581 real loan records tracked via MLflow. XGBoost achieved 93.4% accuracy and AUC 0.947. Identified top predictors via feature importance analysis.</p>
-      <div class="project-stack">
-        <span class="stack-pill">XGBoost</span>
-        <span class="stack-pill">MLflow</span>
-        <span class="stack-pill">Scikit-Learn</span>
-        <span class="stack-pill">Pandas</span>
+      <div class="project-links">
+        <span class="project-link">View Details →</span>
+        <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" class="project-link-gh" onclick="event.stopPropagation()">GitHub ↗</a>
       </div>
-      <span class="project-link">View on GitHub →</span>
     </a>
 
-    <a href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" class="project-card">
-      <div class="project-tag">Reinforcement Learning</div>
-      <div class="project-title">Multi-Agent Atari Boxing DQN</div>
-      <p class="project-desc">Two competing DQN agents trained to play Atari Boxing using PettingZoo and PyTorch. Achieved 62%/38% win-rate split over 200 episodes on T4 GPU with Experience Replay and Target Networks.</p>
-      <div class="project-stack">
-        <span class="stack-pill">PyTorch</span>
-        <span class="stack-pill">PettingZoo</span>
-        <span class="stack-pill">OpenCV</span>
-        <span class="stack-pill">Matplotlib</span>
-        <span class="stack-pill">CNN</span>
-      </div>
-      <span class="project-link">View on GitHub →</span>
-    </a>
-
-    <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-card">
+    <a href="projects.html#datapulse" class="project-card">
       <div class="project-tag">Data Visualization</div>
       <div class="project-title">DataPulse Dashboard</div>
       <p class="project-desc">Fully interactive analytics dashboard using D3.js v7 with 7 chart types across 11,900+ records from 3 datasets. No backend or framework required.</p>
@@ -568,10 +596,13 @@
         <span class="stack-pill">HTML/CSS</span>
         <span class="stack-pill">Fetch API</span>
       </div>
-      <span class="project-link">View on GitHub →</span>
+      <div class="project-links">
+        <span class="project-link">View Details →</span>
+        <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-link-gh" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
     </a>
 
-    <a href="https://github.com/Smit-Velani/customer_behavior" target="_blank" class="project-card">
+    <a href="projects.html#shopping" class="project-card">
       <div class="project-tag">Data Analytics · SQL</div>
       <div class="project-title">Customer Shopping Behavior</div>
       <p class="project-desc">End-to-end analytics project on 3,900 retail transactions using SQL CTEs and window functions. Built Power BI dashboard revealing Young Adults as top segment ($62,143).</p>
@@ -581,7 +612,10 @@
         <span class="stack-pill">Power BI</span>
         <span class="stack-pill">Pandas</span>
       </div>
-      <span class="project-link">View on GitHub →</span>
+      <div class="project-links">
+        <span class="project-link">View Details →</span>
+        <a href="https://github.com/Smit-Velani/customer_behavior" target="_blank" class="project-link-gh" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
     </a>
 
   </div>
@@ -612,9 +646,10 @@
         <span class="skill-item">PyTorch</span>
         <span class="skill-item">TensorFlow</span>
         <span class="skill-item">Scikit-Learn</span>
-        <span class="skill-item">Keras</span>
-        <span class="skill-item">LangChain</span>
         <span class="skill-item">XGBoost</span>
+        <span class="skill-item">LangChain</span>
+        <span class="skill-item">AutoML</span>
+        <span class="skill-item">SHAP</span>
         <span class="skill-item">RAG</span>
         <span class="skill-item">ARIMA</span>
         <span class="skill-item">K-Means</span>
@@ -643,6 +678,7 @@
         <span class="skill-item">FAISS</span>
         <span class="skill-item">MLflow</span>
         <span class="skill-item">Flask</span>
+        <span class="skill-item">FastAPI</span>
         <span class="skill-item">Git/GitHub</span>
         <span class="skill-item">Jupyter</span>
       </div>
@@ -657,9 +693,9 @@
   <div class="section-label">Contact</div>
   <div class="contact-wrap">
     <h2 class="contact-wrap-title">Let's work together</h2>
-    <p>I'm actively looking for Data Science internship opportunities for 2027. Feel free to reach out!</p>
+    <p>I'm actively looking for Data Science Co-op opportunities for January 2027 in Boston. Feel free to reach out!</p>
     <div class="contact-links">
-      <a href="mailto:velanismitkumar@gmail.com" class="contact-btn">&#9993; velanismitkumar@gmail.com</a>
+      <a href="mailto:velani.sm@northeastern.edu" class="contact-btn">&#9993; velani.sm@northeastern.edu</a>
       <a href="https://github.com/Smit-Velani" target="_blank" class="contact-btn">GitHub</a>
       <a href="https://www.linkedin.com/in/smit-velani" target="_blank" class="contact-btn">LinkedIn</a>
     </div>
@@ -672,10 +708,10 @@
 
 <script>
   const phrases = [
-    "build LLM-powered RAG chatbots.",
-    "train reinforcement learning agents.",
+    "build AutoML platforms that deploy ML models.",
+    "design 6-layer AI pipelines.",
     "turn raw data into decisions.",
-    "build deep learning systems.",
+    "build LLM-powered applications.",
     "love solving real-world problems with ML."
   ];
 
