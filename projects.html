@@ -447,10 +447,117 @@
         </div>
       </div>
 
-      <!-- PROJECT 05 — DataPulse Dashboard -->
-      <div id="datapulse" class="project">
+      <!-- PROJECT 05 — AutoApply AI -->
+      <div id="autoapply" class="project">
         <div class="project-left">
           <div class="project-number">05</div>
+          <span class="project-tag">Multi-Agent · LLM · Deployed</span>
+          <div class="project-title-left">AutoApply AI</div>
+          <a href="https://github.com/Smit-Velani/autoapply-ai" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+        </div>
+        <div class="project-right">
+          <h2>AutoApply AI — Multi-Agent Job Application Platform</h2>
+          <p>
+            A <strong>multi-agent autonomous job application platform</strong> where five specialized LLM agents work in sequence to scout job postings, score each one against a user's resume, tailor bullet points, draft cover letters, and run an ATS quality check. Results are shown on a dashboard and emailed as a daily digest.
+          </p>
+          <p>
+            <strong>Agent 1 (Scout)</strong> uses Tavily API to find jobs across Greenhouse, Lever, Ashby, and Wellfound. <strong>Agent 2 (Analyst)</strong> scores each job 0-100 using Groq LLaMA. <strong>Agent 3 (Tailor)</strong> rewrites resume bullets to match the job. <strong>Agent 4 (Cover Letter)</strong> drafts a personalized letter. <strong>Agent 5 (QC)</strong> produces ATS compatibility scores and skill gap analysis.
+          </p>
+          <p>
+            The system includes <strong>JWT authentication</strong>, bcrypt password hashing, email-based password reset, per-user data isolation in <strong>MongoDB Atlas</strong>, PDF resume upload, application status tracking, and an <strong>APScheduler</strong> daily pipeline run at 8:30 AM EST.
+          </p>
+
+          <div class="achievements">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li><strong>5-agent pipeline</strong> — scout, score, tailor, write, QC in sequence</li>
+              <li>Full-stack deployment: <strong>Railway</strong> (backend) + <strong>Vercel</strong> (frontend)</li>
+              <li><strong>JWT auth</strong> with email-based password reset via Resend API</li>
+              <li><strong>Per-user data isolation</strong> — JWT-decoded email filters all queries</li>
+              <li>PDF resume parsing, application status tracker, private notes per job</li>
+              <li>Validated by a <strong>real interview invite</strong> from ClearView Healthcare Partners</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">FastAPI</span>
+              <span class="stack-pill">React</span>
+              <span class="stack-pill">Groq LLaMA 3.3</span>
+              <span class="stack-pill">Tavily API</span>
+              <span class="stack-pill">MongoDB Atlas</span>
+              <span class="stack-pill">JWT</span>
+              <span class="stack-pill">APScheduler</span>
+              <span class="stack-pill">Railway</span>
+              <span class="stack-pill">Vercel</span>
+              <span class="stack-pill">Resend API</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h3>What I Learned</h3>
+            <p>Building a multi-agent system taught me that each agent should have one clear job — it makes the system easier to debug and extend than a single monolithic prompt. The biggest challenge was per-user data isolation and handling JWT auth correctly at scale.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 06 — Atari Boxing DQN -->
+      <div id="atari" class="project">
+        <div class="project-left">
+          <div class="project-number">06</div>
+          <span class="project-tag">Reinforcement Learning</span>
+          <div class="project-title-left">Multi-Agent Atari Boxing DQN</div>
+          <a href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+        </div>
+        <div class="project-right">
+          <h2>Multi-Agent Atari Boxing with Deep Q-Learning</h2>
+          <p>
+            This project trains two competing <strong>Deep Q-Network (DQN) agents</strong> to play the Atari Boxing game against each other using the PettingZoo multi-agent environment and PyTorch. The agents learn entirely through self-play — no hardcoded rules or human demonstrations.
+          </p>
+          <p>
+            Each agent uses a <strong>CNN-based DQN architecture</strong> consisting of 3 convolutional layers followed by 2 fully connected layers, operating on 4 stacked 84×84 grayscale frames as input. The stacking of frames gives the agent temporal information to infer velocity and direction.
+          </p>
+          <p>
+            Key RL techniques implemented from scratch include <strong>Experience Replay</strong> with a 10,000-sample buffer, <strong>Target Networks</strong> for stable Q-value updates, and <strong>Epsilon-Greedy exploration</strong> decaying from 1.0 to 0.1 over training. Trained over 200 episodes on a T4 GPU.
+          </p>
+
+          <div class="achievements">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li>Achieved <strong>62%/38% win-rate split</strong> between agents after 200 episodes</li>
+              <li>Trained on <strong>T4 GPU</strong> via Google Colab</li>
+              <li>Implemented <strong>Experience Replay (10K buffer)</strong> and Target Networks from scratch</li>
+              <li>Preprocessed <strong>210×160×3 RGB frames</strong> to 84×84 grayscale using OpenCV</li>
+              <li>Visualized reward curves and win-rate progression using Matplotlib</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">PyTorch</span>
+              <span class="stack-pill">PettingZoo</span>
+              <span class="stack-pill">OpenCV</span>
+              <span class="stack-pill">Matplotlib</span>
+              <span class="stack-pill">Google Colab</span>
+              <span class="stack-pill">CUDA (T4 GPU)</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h3>What I Learned</h3>
+            <p>This project gave me practical experience with the full DQN training loop and how multi-agent environments introduce non-stationarity that makes training more challenging than single-agent RL.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 07 — DataPulse Dashboard -->
+      <div id="datapulse" class="project">
+        <div class="project-left">
+          <div class="project-number">07</div>
           <span class="project-tag">Data Visualization</span>
           <div class="project-title-left">DataPulse Dashboard</div>
           <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-github-btn">↗ View on GitHub</a>
@@ -496,10 +603,10 @@
         </div>
       </div>
 
-      <!-- PROJECT 06 — Customer Shopping Behavior -->
+      <!-- PROJECT 08 — Customer Shopping Behavior -->
       <div id="shopping" class="project">
         <div class="project-left">
-          <div class="project-number">06</div>
+          <div class="project-number">08</div>
           <span class="project-tag">Data Analytics · SQL</span>
           <div class="project-title-left">Customer Shopping Behavior</div>
           <a href="https://github.com/Smit-Velani/customer_behavior" target="_blank" class="project-github-btn">↗ View on GitHub</a>
