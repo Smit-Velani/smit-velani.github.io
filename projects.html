@@ -85,6 +85,7 @@
         display: grid; grid-template-columns: 1fr 2fr;
         gap: 3rem; align-items: start;
         padding-bottom: 5rem; border-bottom: 1px solid var(--border);
+        scroll-margin-top: 80px;
       }
 
       .project:last-child { border-bottom: none; padding-bottom: 0; }
@@ -226,10 +227,67 @@
 
     <div class="projects-container">
 
-      <!-- PROJECT 01 — Global Economic Intelligence Dashboard -->
-      <div class="project">
+      <!-- PROJECT 01 — IDP -->
+      <div id="idp" class="project">
         <div class="project-left">
           <div class="project-number">01</div>
+          <span class="project-tag featured">AutoML · MLOps · Full-Stack</span>
+          <div class="project-title-left">Intelligent Data Platform (IDP)</div>
+          <a href="https://github.com/Smit-Velani/intelligent-data-platform" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+        </div>
+        <div class="project-right">
+          <h2>Intelligent Data Platform (IDP)</h2>
+          <p>
+            An end-to-end <strong>AutoML platform</strong> that turns any uploaded CSV into a trained, explained, and deployment-ready ML model. Upload a dataset — the platform automatically cleans it, detects the problem type (classification, regression, or clustering), trains multiple models, and selects the best one using a configurable <strong>business cost matrix</strong>.
+          </p>
+          <p>
+            Model selection goes beyond raw accuracy — a <strong>recall-floor guardrail</strong> prevents degenerate predictions, and <strong>leakage-free SMOTE</strong> cross-validation folds ensure evaluation is honest on imbalanced data. An adaptive <strong>SHAP explainer</strong> (Tree, Linear, or Kernel based on model type) provides per-prediction explanations and global feature importance.
+          </p>
+          <p>
+            <strong>PSI drift detection</strong> flags when incoming inference data shifts from the training distribution. <strong>Groq LLaMA 3.3</strong> generates a plain-English business report summarizing findings and recommendations, downloadable as a <strong>PDF</strong>. The system ships with 14 pytest tests and a <strong>GitHub Actions CI</strong> pipeline.
+          </p>
+
+          <div class="achievements">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li><strong>AUC-ROC 0.981</strong> and <strong>AUC-PR 0.848</strong> on 284K-row imbalanced fraud dataset (0.17% positive rate)</li>
+              <li><strong>Cost-aware model selection</strong> — optimizes expected business loss, not just accuracy</li>
+              <li><strong>Leakage-free SMOTE</strong> — synthetic samples never touch held-out folds</li>
+              <li><strong>Adaptive SHAP</strong> — TreeExplainer for trees, LinearExplainer for linear models</li>
+              <li>Reduced training time from <strong>20 to 3 minutes</strong> via data-size-aware scaling strategy</li>
+              <li><strong>14 pytest tests</strong> with GitHub Actions CI — verified, not just written</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">FastAPI</span>
+              <span class="stack-pill">React</span>
+              <span class="stack-pill">XGBoost</span>
+              <span class="stack-pill">SHAP</span>
+              <span class="stack-pill">LIME</span>
+              <span class="stack-pill">MLflow</span>
+              <span class="stack-pill">Groq LLaMA 3.3</span>
+              <span class="stack-pill">MongoDB Atlas</span>
+              <span class="stack-pill">imbalanced-learn</span>
+              <span class="stack-pill">ReportLab</span>
+              <span class="stack-pill">pytest</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h3>What I Learned</h3>
+            <p>The most important lesson: a correct earlier refusal of a shortcut (like KernelSHAP on 284K rows) matters more than feature count. Running the code and fixing real bugs — like the runner-up cost-matrix selection bug — built more confidence than any amount of planning.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 02 — Global Economic Intelligence Dashboard -->
+      <div id="dashboard" class="project">
+        <div class="project-left">
+          <div class="project-number">02</div>
           <span class="project-tag featured">AI · ML · Full-Stack</span>
           <div class="project-title-left">Global Economic Intelligence Dashboard</div>
           <a href="https://github.com/Smit-Velani/Global-Economic-Intelligence-Dashboard" target="_blank" class="project-github-btn">↗ View on GitHub</a>
@@ -282,10 +340,66 @@
         </div>
       </div>
 
-      <!-- PROJECT 02 — RAG PDF Chatbot -->
-      <div class="project">
+      <!-- PROJECT 03 — DailyBrief AI -->
+      <div id="dailybrief" class="project">
         <div class="project-left">
-          <div class="project-number">02</div>
+          <div class="project-number">03</div>
+          <span class="project-tag">AI Pipeline · Deployed</span>
+          <div class="project-title-left">DailyBrief AI</div>
+          <a href="https://github.com/Smit-Velani/dailybrief-ai" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+        </div>
+        <div class="project-right">
+          <h2>DailyBrief AI — Personal Intelligence System</h2>
+          <p>
+            A <strong>6-layer AI pipeline</strong> that reads your Gmail, analyzes your Google Calendar, and automatically delivers a personalized daily intelligence brief three times per day — even when your PC is off. Deployed 24/7 on Railway cloud.
+          </p>
+          <p>
+            The pipeline layers work in sequence: <strong>Gmail API</strong> ingests inbox, <strong>Google Calendar API</strong> checks schedule, an <strong>NLP parser</strong> using spaCy and VADER detects deadlines and urgency signals, an <strong>XGBoost classifier</strong> scores email priorities with a self-improving feedback loop, <strong>Groq LLaMA 3.3</strong> generates the personalized brief, and <strong>Resend API</strong> delivers a beautifully formatted HTML email.
+          </p>
+          <p>
+            All briefs and email statistics are stored in <strong>MongoDB Atlas</strong>. An <strong>APScheduler</strong> cron job triggers delivery at 8:30 AM, 2:00 PM, and 8:00 PM daily. The system runs autonomously without any manual intervention.
+          </p>
+
+          <div class="achievements">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li><strong>6-layer autonomous pipeline</strong> — runs 24/7 without manual intervention</li>
+              <li><strong>Gmail OAuth2</strong> and <strong>Google Calendar API</strong> integration for real inbox data</li>
+              <li><strong>XGBoost priority classifier</strong> with self-improving feedback loop via MongoDB</li>
+              <li><strong>Groq LLaMA 3.3</strong> generates context-aware, personalized brief content</li>
+              <li>Delivers <strong>3 briefs daily</strong> (morning, afternoon, evening) via Resend API</li>
+              <li>Deployed on <strong>Railway cloud</strong> — fully operational without local machine</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">Groq LLaMA 3.3</span>
+              <span class="stack-pill">XGBoost</span>
+              <span class="stack-pill">spaCy</span>
+              <span class="stack-pill">VADER</span>
+              <span class="stack-pill">Gmail API</span>
+              <span class="stack-pill">Google Calendar API</span>
+              <span class="stack-pill">MongoDB Atlas</span>
+              <span class="stack-pill">APScheduler</span>
+              <span class="stack-pill">Resend API</span>
+              <span class="stack-pill">Railway</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h3>What I Learned</h3>
+            <p>Building a truly autonomous pipeline taught me that reliability matters more than features. Handling OAuth token expiry in production (solved by republishing to Production mode), managing Groq rate limits across projects, and designing a self-improving feedback loop gave me real production ML engineering experience.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 04 — RAG PDF Chatbot -->
+      <div id="rag" class="project">
+        <div class="project-left">
+          <div class="project-number">04</div>
           <span class="project-tag">NLP · LLM · RAG</span>
           <div class="project-title-left">RAG PDF Chatbot</div>
           <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" class="project-github-btn">↗ View on GitHub</a>
@@ -333,110 +447,8 @@
         </div>
       </div>
 
-      <!-- PROJECT 03 — Loan Default Prediction -->
-      <div class="project">
-        <div class="project-left">
-          <div class="project-number">03</div>
-          <span class="project-tag">MLOps · ML Pipeline</span>
-          <div class="project-title-left">Loan Default Prediction with MLflow</div>
-          <a href="https://github.com/Smit-Velani/Loan-Default-Prediction-MLflow" target="_blank" class="project-github-btn">↗ View on GitHub</a>
-        </div>
-        <div class="project-right">
-          <h2>Loan Default Prediction with MLflow</h2>
-          <p>
-            This project builds a complete <strong>end-to-end ML pipeline</strong> for predicting loan defaults using 32,581 real loan records. Four different machine learning models were trained and compared with all experiments tracked using <strong>MLflow</strong>.
-          </p>
-          <p>
-            The pipeline covers the full data science lifecycle: data cleaning, feature engineering, missing value imputation, outlier removal, label encoding, feature scaling, model evaluation, and experiment tracking. Each experiment run is logged to MLflow with metrics, parameters, and artifacts for full reproducibility.
-          </p>
-          <p>
-            <strong>XGBoost</strong> emerged as the best performing model, achieving 93.4% accuracy and an AUC of 0.947. Feature importance analysis identified the top predictors of loan default — loan grade, home ownership, and loan percent income — providing actionable insights for credit risk assessment.
-          </p>
-
-          <div class="achievements">
-            <h3>Key Achievements</h3>
-            <ul>
-              <li>Trained on <strong>32,581 real loan records</strong> from Kaggle Credit Risk Dataset</li>
-              <li><strong>XGBoost achieved 93.4% accuracy</strong> and AUC of 0.947</li>
-              <li>All 4 models tracked via <strong>MLflow</strong> with full experiment logging</li>
-              <li>Identified <strong>loan grade, home ownership, loan percent income</strong> as top predictors</li>
-              <li>Best model saved using <strong>joblib</strong> for deployment</li>
-            </ul>
-          </div>
-
-          <div class="tech-stack">
-            <h3>Tech Stack</h3>
-            <div class="stack-pills">
-              <span class="stack-pill">Python</span>
-              <span class="stack-pill">XGBoost</span>
-              <span class="stack-pill">MLflow</span>
-              <span class="stack-pill">Scikit-Learn</span>
-              <span class="stack-pill">Pandas</span>
-              <span class="stack-pill">Matplotlib</span>
-              <span class="stack-pill">joblib</span>
-            </div>
-          </div>
-
-          <div class="learned">
-            <h3>What I Learned</h3>
-            <p>This project taught me the importance of experiment tracking in ML — without MLflow, comparing 4 models across multiple configurations would have been chaotic. I gained practical experience with the full MLOps pipeline from raw data to saved production model.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 04 — Atari Boxing DQN -->
-      <div class="project">
-        <div class="project-left">
-          <div class="project-number">04</div>
-          <span class="project-tag">Reinforcement Learning</span>
-          <div class="project-title-left">Multi-Agent Atari Boxing DQN</div>
-          <a href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" class="project-github-btn">↗ View on GitHub</a>
-        </div>
-        <div class="project-right">
-          <h2>Multi-Agent Atari Boxing DQN</h2>
-          <p>
-            This project trains two competing <strong>Deep Q-Network (DQN) agents</strong> to play the Atari Boxing game against each other using the PettingZoo multi-agent environment and PyTorch. The agents learn entirely through self-play — no hardcoded rules or human demonstrations.
-          </p>
-          <p>
-            Each agent uses a <strong>CNN-based DQN architecture</strong> consisting of 3 convolutional layers followed by 2 fully connected layers, operating on 4 stacked 84×84 grayscale frames as input. The stacking of frames gives the agent temporal information — it can infer velocity and direction of movement from consecutive frames.
-          </p>
-          <p>
-            Key RL techniques implemented from scratch include <strong>Experience Replay</strong> with a 10,000-sample buffer, <strong>Target Networks</strong> for stable Q-value updates, and <strong>Epsilon-Greedy exploration</strong> decaying from 1.0 to 0.1 over training.
-          </p>
-
-          <div class="achievements">
-            <h3>Key Achievements</h3>
-            <ul>
-              <li>Achieved <strong>62%/38% win-rate split</strong> between agents after 200 episodes</li>
-              <li>Trained on <strong>T4 GPU</strong> via Google Colab with full experiment tracking</li>
-              <li>Implemented <strong>Experience Replay (10K buffer)</strong> and Target Networks from scratch</li>
-              <li>Preprocessed <strong>210×160×3 RGB frames</strong> to 84×84 grayscale using OpenCV</li>
-              <li>Visualized reward curves and win-rate progression using Matplotlib</li>
-            </ul>
-          </div>
-
-          <div class="tech-stack">
-            <h3>Tech Stack</h3>
-            <div class="stack-pills">
-              <span class="stack-pill">Python</span>
-              <span class="stack-pill">PyTorch</span>
-              <span class="stack-pill">PettingZoo</span>
-              <span class="stack-pill">OpenCV</span>
-              <span class="stack-pill">Matplotlib</span>
-              <span class="stack-pill">Google Colab</span>
-              <span class="stack-pill">CUDA (T4 GPU)</span>
-            </div>
-          </div>
-
-          <div class="learned">
-            <h3>What I Learned</h3>
-            <p>This project gave me practical experience with the full DQN training loop, the importance of experience replay for stability, and how multi-agent environments introduce non-stationarity that makes training more challenging than single-agent RL.</p>
-          </div>
-        </div>
-      </div>
-
       <!-- PROJECT 05 — DataPulse Dashboard -->
-      <div class="project">
+      <div id="datapulse" class="project">
         <div class="project-left">
           <div class="project-number">05</div>
           <span class="project-tag">Data Visualization</span>
@@ -485,7 +497,7 @@
       </div>
 
       <!-- PROJECT 06 — Customer Shopping Behavior -->
-      <div class="project">
+      <div id="shopping" class="project">
         <div class="project-left">
           <div class="project-number">06</div>
           <span class="project-tag">Data Analytics · SQL</span>
