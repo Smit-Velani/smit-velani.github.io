@@ -73,48 +73,26 @@
   .project-link-gh { color: var(--muted); font-size: 0.82rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
   .project-link-gh:hover { color: var(--text); }
 
-  /* ---- Skills: bubble buckets ---- */
-  .bubbles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; margin-top: 3rem; }
-  .bucket-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.8rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
-  .bucket-count { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.72rem; color: var(--muted); background: var(--bg3); border: 1px solid var(--border); border-radius: 100px; padding: 0.1rem 0.55rem; }
-  .bucket-jar {
+  /* ---- Skills: single square ball bucket ---- */
+  .ball-pit-wrap { display: flex; justify-content: center; margin-top: 3rem; }
+  .ball-pit {
     position: relative;
-    height: 230px;
-    border-radius: 22px;
-    background: radial-gradient(ellipse at 50% 35%, #EEF4FE 0%, var(--bg3) 60%, #E7ECF2 100%);
-    border: 1px solid var(--border);
+    width: min(94vw, 640px);
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: inset 0 10px 26px rgba(15,23,42,0.08), inset 0 -6px 14px rgba(15,23,42,0.04);
+    background: radial-gradient(circle at 50% 38%, #EEF4FE 0%, var(--bg3) 55%, #E1E7EF 100%);
+    border: 1px solid var(--border);
+    box-shadow: inset 0 14px 34px rgba(15,23,42,0.10), inset 0 -8px 18px rgba(15,23,42,0.05);
   }
-  .bucket-jar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 22px;
-    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.55), inset 0 3px 8px rgba(255,255,255,0.45);
-    pointer-events: none;
-  }
-  .bubble {
+  .ball-pit canvas {
     position: absolute;
     top: 0; left: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #fff;
-    white-space: nowrap;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    box-shadow: 0 6px 16px rgba(37,99,235,0.28), inset 0 1px 2px rgba(255,255,255,0.4);
-    will-change: transform;
-    user-select: none;
+    width: 100%; height: 100%;
+    display: block;
     pointer-events: none;
   }
-  .bubble.v2 { background: linear-gradient(135deg, #3B82F6, #38BDF8); box-shadow: 0 6px 16px rgba(59,130,246,0.26), inset 0 1px 2px rgba(255,255,255,0.4); }
-  .bubble.v3 { background: linear-gradient(135deg, #1D4ED8, #0EA5E9); box-shadow: 0 6px 16px rgba(29,78,216,0.26), inset 0 1px 2px rgba(255,255,255,0.4); }
-  .bucket-hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 
   .contact-wrap { background: linear-gradient(135deg, rgba(37,99,235,0.04), rgba(14,165,233,0.04)); border: 1px solid rgba(37,99,235,0.12); border-radius: 20px; padding: 3.5rem; margin-top: 3rem; text-align: center; }
   .contact-wrap-title { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text); }
@@ -342,66 +320,21 @@
 <div id="skills" class="page-section">
   <div class="section-label">Technical Skills</div>
   <h2 class="section-title">My toolkit</h2>
-  <p class="section-subtitle">Move your cursor over a bucket — the bubbles float apart and drift back.</p>
+  <p class="section-subtitle">One bucket, every tool — drop your cursor in and watch them bounce.</p>
 
-  <div class="bubbles-grid">
-
-    <div class="bucket">
-      <div class="bucket-label">Languages <span class="bucket-count">6</span></div>
-      <div class="bucket-jar">
-        <span class="bubble v1">Python</span>
-        <span class="bubble v2">SQL</span>
-        <span class="bubble v3">JavaScript</span>
-        <span class="bubble v1">PHP</span>
-        <span class="bubble v2">HTML/CSS</span>
-        <span class="bubble v3">SwiftUI</span>
-      </div>
+  <div class="ball-pit-wrap">
+    <div class="ball-pit" id="skillPit">
+      <canvas id="skillCanvas" aria-hidden="true"></canvas>
     </div>
-
-    <div class="bucket">
-      <div class="bucket-label">ML &amp; AI <span class="bucket-count">10</span></div>
-      <div class="bucket-jar">
-        <span class="bubble v1">PyTorch</span>
-        <span class="bubble v2">TensorFlow</span>
-        <span class="bubble v3">Scikit-Learn</span>
-        <span class="bubble v1">XGBoost</span>
-        <span class="bubble v2">LangChain</span>
-        <span class="bubble v3">AutoML</span>
-        <span class="bubble v1">SHAP</span>
-        <span class="bubble v2">RAG</span>
-        <span class="bubble v3">ARIMA</span>
-        <span class="bubble v1">K-Means</span>
-      </div>
-    </div>
-
-    <div class="bucket">
-      <div class="bucket-label">Data &amp; Analytics <span class="bucket-count">7</span></div>
-      <div class="bucket-jar">
-        <span class="bubble v2">Pandas</span>
-        <span class="bubble v3">NumPy</span>
-        <span class="bubble v1">Matplotlib</span>
-        <span class="bubble v2">Seaborn</span>
-        <span class="bubble v3">Power BI</span>
-        <span class="bubble v1">D3.js</span>
-        <span class="bubble v2">Plotly</span>
-      </div>
-    </div>
-
-    <div class="bucket">
-      <div class="bucket-label">Tools &amp; Databases <span class="bucket-count">8</span></div>
-      <div class="bucket-jar">
-        <span class="bubble v3">PostgreSQL</span>
-        <span class="bubble v1">MySQL</span>
-        <span class="bubble v2">MongoDB</span>
-        <span class="bubble v3">FAISS</span>
-        <span class="bubble v1">MLflow</span>
-        <span class="bubble v2">Flask</span>
-        <span class="bubble v3">FastAPI</span>
-        <span class="bubble v1">Git/GitHub</span>
-      </div>
-    </div>
-
   </div>
+
+  <ul class="sr-only">
+    <li>Python</li><li>SQL</li><li>JavaScript</li><li>PHP</li><li>HTML/CSS</li><li>SwiftUI</li>
+    <li>PyTorch</li><li>TensorFlow</li><li>Scikit-Learn</li><li>XGBoost</li><li>LangChain</li><li>AutoML</li><li>SHAP</li><li>RAG</li><li>ARIMA</li><li>K-Means</li>
+    <li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>Power BI</li><li>D3.js</li><li>Plotly</li>
+    <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>FAISS</li><li>MLflow</li><li>Flask</li><li>FastAPI</li><li>Git/GitHub</li>
+    <li>React</li><li>Groq LLaMA</li><li>Socket.IO</li><li>Gmail API</li><li>Railway</li><li>Tavily API</li><li>HuggingFace</li><li>Gemini API</li><li>PettingZoo</li><li>OpenCV</li><li>CNN</li><li>Keras</li><li>Tkinter</li><li>yfinance</li><li>MobileNetV2</li>
+  </ul>
 </div>
 
 <div class="divider"></div>
@@ -450,12 +383,39 @@
 </script>
 
 <script>
-  // ---- Skills bubble-bucket physics ----
-  // Each ".bucket-jar" is a top-down container; each ".bubble" inside floats
-  // gently and scatters away from the cursor, then settles back.
+  // ---- Skills: single square ball-bucket with gravity ----
+  // One square bucket (open top, closed bottom and sides) holding every
+  // skill as a floating white ball with its name across the surface.
+  // Balls drop in from the top, bounce on the floor, settle, and scatter
+  // when the cursor passes through, bouncing off each other and the walls.
   (function () {
-    const jars = document.querySelectorAll('.bucket-jar');
-    if (!jars.length) return;
+    const pit = document.getElementById('skillPit');
+    const canvas = document.getElementById('skillCanvas');
+    if (!pit || !canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const NAMES = [
+      "Python", "SQL", "JavaScript", "PHP", "HTML/CSS", "SwiftUI",
+      "PyTorch", "TensorFlow", "Scikit-Learn", "XGBoost", "LangChain", "AutoML", "SHAP", "RAG", "ARIMA", "K-Means",
+      "Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI", "D3.js", "Plotly",
+      "PostgreSQL", "MySQL", "MongoDB", "FAISS", "MLflow", "Flask", "FastAPI", "Git/GitHub",
+      "React", "Groq LLaMA", "Socket.IO", "Gmail API", "Railway", "Tavily API", "HuggingFace", "Gemini API",
+      "PettingZoo", "OpenCV", "CNN", "Keras", "Tkinter", "yfinance", "MobileNetV2"
+    ];
+
+    const FONT = "700 13px 'DM Sans', sans-serif";
+    const TEXT_COLOR = "#2563EB";
+
+    const GRAVITY = 0.32;
+    const DAMPING = 0.985;
+    const WALL_BOUNCE = 0.72;
+    const BALL_PUSH = 0.5;
+    const REPEL_RADIUS = 120;
+    const REPEL_STRENGTH = 2.4;
+    const MAX_SPEED = 15;
+
+    let size = 0;
+    let balls = [];
 
     const pointer = { x: -9999, y: -9999 };
     window.addEventListener('pointermove', function (e) {
@@ -463,96 +423,157 @@
       pointer.y = e.clientY;
     }, { passive: true });
 
-    const REPEL_RADIUS = 85;
-    const REPEL_STRENGTH = 0.85;
-    const DAMPING = 0.90;
-    const MAX_SPEED = 3.2;
-    const BOUNCE = 0.55;
+    function measureRadius(name) {
+      ctx.font = FONT;
+      const w = ctx.measureText(name).width;
+      const d = Math.max(52, w + 24);
+      return d / 2;
+    }
 
-    jars.forEach(function (jar) {
-      const bubbles = Array.prototype.slice.call(jar.querySelectorAll('.bubble'));
-      if (!bubbles.length) return;
+    function buildBalls() {
+      balls = NAMES.map(function (name, i) {
+        const r = measureRadius(name);
+        return {
+          name: name,
+          r: r,
+          x: r + Math.random() * Math.max(1, size - 2 * r),
+          y: -(30 + Math.random() * size * 1.1),
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: 0,
+          phase: Math.random() * Math.PI * 2,
+          seed: i
+        };
+      });
+    }
 
-      requestAnimationFrame(function () {
-        const rect = jar.getBoundingClientRect();
+    function resize() {
+      const rect = pit.getBoundingClientRect();
+      size = rect.width;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = size * dpr;
+      canvas.height = size * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
 
-        const state = bubbles.map(function (bEl, i) {
-          const w = bEl.offsetWidth, h = bEl.offsetHeight;
-          const r = Math.max(w, h) / 2;
-          return {
-            el: bEl, w: w, h: h, r: r,
-            x: Math.random() * Math.max(1, rect.width - w),
-            y: Math.random() * Math.max(1, rect.height - h),
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            phase: Math.random() * Math.PI * 2,
-            seed: i
-          };
-        });
+    function drawBall(b) {
+      const cx = b.x, cy = b.y, r = b.r;
 
-        function step() {
-          const r = jar.getBoundingClientRect();
-          const localX = pointer.x - r.left;
-          const localY = pointer.y - r.top;
-          const hovering = localX > -40 && localX < r.width + 40 && localY > -40 && localY < r.height + 40;
+      ctx.save();
+      ctx.shadowColor = 'rgba(15,23,42,0.20)';
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetY = 4;
+      const grad = ctx.createRadialGradient(cx - r * 0.3, cy - r * 0.35, r * 0.15, cx, cy, r);
+      grad.addColorStop(0, '#FFFFFF');
+      grad.addColorStop(0.65, '#F2F6FB');
+      grad.addColorStop(1, '#DCE4EE');
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(15,23,42,0.08)';
+      ctx.stroke();
+      ctx.restore();
 
-          for (let i = 0; i < state.length; i++) {
-            const b = state[i];
-            const cx = b.x + b.w / 2;
-            const cy = b.y + b.h / 2;
+      ctx.beginPath();
+      ctx.ellipse(cx - r * 0.32, cy - r * 0.4, r * 0.34, r * 0.16, -0.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.6)';
+      ctx.fill();
 
-            b.phase += 0.014;
-            b.vx += Math.cos(b.phase + b.seed) * 0.006;
-            b.vy += Math.sin(b.phase * 1.3 + b.seed) * 0.006;
+      ctx.font = FONT;
+      ctx.fillStyle = TEXT_COLOR;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(b.name, cx, cy + 1);
+    }
 
-            if (hovering) {
-              const dx = cx - localX;
-              const dy = cy - localY;
-              const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-              if (dist < REPEL_RADIUS) {
-                const force = ((REPEL_RADIUS - dist) / REPEL_RADIUS) * REPEL_STRENGTH;
-                b.vx += (dx / dist) * force;
-                b.vy += (dy / dist) * force;
-              }
-            }
+    function step() {
+      ctx.clearRect(0, 0, size, size);
 
-            for (let j = i + 1; j < state.length; j++) {
-              const o = state[j];
-              const ox = (o.x + o.w / 2) - cx;
-              const oy = (o.y + o.h / 2) - cy;
-              const odist = Math.sqrt(ox * ox + oy * oy) || 1;
-              const minDist = b.r + o.r;
-              if (odist < minDist) {
-                const push = ((minDist - odist) / minDist) * 0.5;
-                const nx = ox / odist, ny = oy / odist;
-                b.vx -= nx * push; b.vy -= ny * push;
-                o.vx += nx * push; o.vy += ny * push;
-              }
-            }
+      const rect = pit.getBoundingClientRect();
+      const localX = pointer.x - rect.left;
+      const localY = pointer.y - rect.top;
+      const hovering = localX > -30 && localX < size + 30 && localY > -30 && localY < size + 30;
 
-            b.vx *= DAMPING; b.vy *= DAMPING;
-            const speed = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
-            if (speed > MAX_SPEED) {
-              b.vx = (b.vx / speed) * MAX_SPEED;
-              b.vy = (b.vy / speed) * MAX_SPEED;
-            }
+      for (let i = 0; i < balls.length; i++) {
+        const b = balls[i];
 
-            b.x += b.vx; b.y += b.vy;
+        b.vy += GRAVITY;
 
-            if (b.x < 0) { b.x = 0; b.vx *= -BOUNCE; }
-            if (b.y < 0) { b.y = 0; b.vy *= -BOUNCE; }
-            if (b.x + b.w > r.width) { b.x = r.width - b.w; b.vx *= -BOUNCE; }
-            if (b.y + b.h > r.height) { b.y = r.height - b.h; b.vy *= -BOUNCE; }
+        b.phase += 0.02;
+        b.vx += Math.cos(b.phase + b.seed) * 0.01;
 
-            b.el.style.transform = 'translate3d(' + b.x + 'px,' + b.y + 'px,0)';
+        if (hovering) {
+          const dx = b.x - localX, dy = b.y - localY;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          if (dist < REPEL_RADIUS) {
+            const force = ((REPEL_RADIUS - dist) / REPEL_RADIUS) * REPEL_STRENGTH;
+            b.vx += (dx / dist) * force;
+            b.vy += (dy / dist) * force;
           }
-
-          requestAnimationFrame(step);
         }
 
-        requestAnimationFrame(step);
-      });
+        for (let j = i + 1; j < balls.length; j++) {
+          const o = balls[j];
+          const ox = o.x - b.x, oy = o.y - b.y;
+          const odist = Math.sqrt(ox * ox + oy * oy) || 1;
+          const minDist = b.r + o.r;
+          if (odist < minDist) {
+            const push = ((minDist - odist) / minDist) * BALL_PUSH;
+            const nx = ox / odist, ny = oy / odist;
+            b.vx -= nx * push; b.vy -= ny * push;
+            o.vx += nx * push; o.vy += ny * push;
+          }
+        }
+
+        b.vx *= DAMPING; b.vy *= DAMPING;
+        const speed = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
+        if (speed > MAX_SPEED) {
+          b.vx = (b.vx / speed) * MAX_SPEED;
+          b.vy = (b.vy / speed) * MAX_SPEED;
+        }
+
+        b.x += b.vx;
+        b.y += b.vy;
+
+        // left / right walls
+        if (b.x - b.r < 0) {
+          b.x = b.r;
+          if (b.vx < 0) b.vx = -b.vx * WALL_BOUNCE;
+        } else if (b.x + b.r > size) {
+          b.x = size - b.r;
+          if (b.vx > 0) b.vx = -b.vx * WALL_BOUNCE;
+        }
+
+        // floor only — the top of the bucket stays open so balls fall in
+        if (b.y + b.r > size) {
+          b.y = size - b.r;
+          if (b.vy > 0) b.vy = -b.vy * WALL_BOUNCE;
+        }
+
+        drawBall(b);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    function start() {
+      resize();
+      buildBalls();
+      requestAnimationFrame(step);
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 150);
     });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(start).catch(start);
+    } else {
+      start();
+    }
   })();
 </script>
 </body>
