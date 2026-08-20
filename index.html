@@ -143,7 +143,6 @@
       <a href="resume.pdf" download class="btn-secondary">Download Resume</a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num">4.0</div><div class="stat-label">GPA at NEU</div></div>
       <div><div class="stat-num">82</div><div class="stat-label">Tests Passing</div></div>
       <div><div class="stat-num">2</div><div class="stat-label">Live Demos</div></div>
       <div><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
@@ -164,7 +163,7 @@
     <div class="about-text">
       <p>I'm an MS Data Science student at Northeastern University, Boston, building ML systems and then trying to prove they work.</p>
       <p>That framing came out of something specific. While building a causal inference platform, I found my own difference-in-differences implementation had 83% confidence-interval coverage instead of the nominal 95%. Rather than quietly patch it, I extended the data generator to make the underlying assumption testable, built a placebo test, and confirmed the violation was real. The failure turned out to be more informative than the feature.</p>
-      <p>Most of my work since has followed that pattern — build the thing, then build the diagnostic that would catch it lying. It's why my projects report confidence intervals rather than point estimates, and why the limitations sections in my repositories run as long as the results.</p>
+      <p>Most of my work since has followed that pattern: build the thing, then build the diagnostic that would catch it lying. It's why my projects report confidence intervals rather than point estimates, and why the limitations sections in my repositories run as long as the results.</p>
       <p>Previously interned at IBM SkillsBuild (CSRBOX) building a plant disease detection system at 89% accuracy, and at Unified Mentor building a full stock market analysis platform with every indicator written from scratch.</p>
       <p>Currently seeking Data Science Co-op opportunities for January 2027 in Boston.</p>
       <div class="about-tags">
@@ -189,7 +188,7 @@
     <div class="exp-card">
       <div class="exp-header">
         <div><div class="exp-company">Unified Mentor Pvt. Ltd.</div><div class="exp-role">Data Science Intern</div></div>
-        <div class="exp-date">Jan 2025 – Apr 2025</div>
+        <div class="exp-date">Jan 2025 to Apr 2025</div>
       </div>
       <p style="font-size:0.85rem; color: var(--muted); margin-bottom:0.5rem;">Stock Market Data Analysis System · Python | Pandas | NumPy | Tkinter | yfinance</p>
       <ul class="exp-bullets">
@@ -201,7 +200,7 @@
     <div class="exp-card">
       <div class="exp-header">
         <div><div class="exp-company">IBM SkillsBuild · CSRBOX</div><div class="exp-role">Data Science Intern</div></div>
-        <div class="exp-date">Jun 2024 – Aug 2024</div>
+        <div class="exp-date">Jun 2024 to Aug 2024</div>
       </div>
       <p style="font-size:0.85rem; color: var(--muted); margin-bottom:0.5rem;">Plant Health Prediction System · Python | TensorFlow | OpenCV | Flask | Keras</p>
       <ul class="exp-bullets">
@@ -219,15 +218,15 @@
 <div id="projects" class="page-section">
   <div class="section-label">Projects</div>
   <h2 class="section-title">Things I've built</h2>
-  <p class="section-subtitle">The interesting part isn't the methods — it's whether they can be shown to have worked. Each of these ships the diagnostic that would catch it failing.</p>
+  <p class="section-subtitle">The interesting part isn't the methods. It's whether they can be shown to have worked. Each of these ships the diagnostic that would catch it failing.</p>
 
   <div class="projects-grid">
 
     <div class="project-card featured">
       <span class="project-tag featured-tag">Causal Inference · Experimentation</span>
       <div class="project-title">CausalLens</div>
-      <p class="project-desc">Covers the full lifecycle of an experiment — design it, monitor it without inflating error rates, estimate the effect afterwards. CUPED, DiD, PSM, doubly robust AIPW, Bayesian A/B, uplift modelling and always-valid sequential inference, each validated against a known injected effect.</p>
-      <p class="project-finding">A placebo test measured a +0.45/period pre-trend from pre-treatment data alone, then predicted the realised DiD bias of 0.37. Validated externally on the LaLonde benchmark, recovering $1,637 against a $1,794 experimental truth from a −$8,498 naive baseline.</p>
+      <p class="project-desc">Covers the full lifecycle of an experiment: design it, monitor it without inflating error rates, estimate the effect afterwards. CUPED, DiD, PSM, doubly robust AIPW, Bayesian A/B, uplift modelling and always-valid sequential inference, each validated against a known injected effect.</p>
+      <p class="project-finding">A placebo test measured a 0.45 per period pre-trend from pre-treatment data alone, then predicted the realised DiD bias of 0.37. Validated externally on the LaLonde benchmark, recovering 1,637 USD against a 1,794 USD experimental truth from a negative 8,498 USD naive baseline.</p>
       <div class="project-stack">
         <span class="stack-pill">Python</span><span class="stack-pill">Statsmodels</span><span class="stack-pill">Scikit-Learn</span><span class="stack-pill">SciPy</span><span class="stack-pill">Streamlit</span><span class="stack-pill">45 tests</span>
       </div>
@@ -240,7 +239,7 @@
     <div class="project-card featured">
       <span class="project-tag featured-tag">LLM Evaluation · AI Safety</span>
       <div class="project-title">AgentAudit</div>
-      <p class="project-desc">An evaluation harness built around Scout, a ReAct-style CSV analyst. Dual LLM judges score against a hand-written 29-task golden set, then get validated against human scoring — because a judge that scores answers is itself a model that can be wrong.</p>
+      <p class="project-desc">An evaluation harness built around Scout, a ReAct-style CSV analyst. Dual LLM judges score against a hand-written 29-task golden set, then get validated against human scoring, because a judge that scores answers is itself a model that can be wrong.</p>
       <p class="project-finding">Red-teaming exposed a hallucination keyword guardrails could not see: the agent invented a customer segment absent from the data. I built a grounding guardrail validating entity mentions against the dataset itself, then documented the fabrication it still cannot catch.</p>
       <div class="project-stack">
         <span class="stack-pill">Python</span><span class="stack-pill">LangChain</span><span class="stack-pill">LangGraph</span><span class="stack-pill">Groq</span><span class="stack-pill">Streamlit</span><span class="stack-pill">23 tests</span>
@@ -255,7 +254,7 @@
       <span class="project-tag featured-tag">AutoML · MLOps · Full-Stack</span>
       <div class="project-title">GlassBox ML</div>
       <p class="project-desc">Upload any CSV and it inspects data quality, flags target leakage, infers the problem type, trains five model families unattended, explains the winner with SHAP, checks for drift and writes a plain-English PDF report.</p>
-      <p class="project-finding">It selects the winning model by expected business cost rather than raw accuracy. On 284K rows of fraud data it chose XGBoost over Logistic Regression despite comparable AUC-ROC, because LR's 0.06 precision was ruinously expensive — a concrete case for why metric choice matters on imbalanced data.</p>
+      <p class="project-finding">It selects the winning model by expected business cost rather than raw accuracy. On 284K rows of fraud data it chose XGBoost over Logistic Regression despite comparable AUC-ROC, because Logistic Regression's 0.06 precision was ruinously expensive. A concrete case for why metric choice matters on imbalanced data.</p>
       <div class="project-stack">
         <span class="stack-pill">FastAPI</span><span class="stack-pill">React</span><span class="stack-pill">XGBoost</span><span class="stack-pill">SHAP</span><span class="stack-pill">LIME</span><span class="stack-pill">14 tests</span>
       </div>
@@ -279,12 +278,12 @@
     </a>
     <a class="more-row" href="https://github.com/Smit-Velani/autoapply-ai" target="_blank" rel="noopener">
       <span class="more-name">AutoApply AI</span>
-      <span class="more-desc">Five LLM agents that scout, score, tailor and quality-check job applications against a résumé</span>
+      <span class="more-desc">Five LLM agents that scout, score, tailor and quality-check job applications against a resume</span>
       <span class="more-arrow">↗</span>
     </a>
     <a class="more-row" href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" rel="noopener">
       <span class="more-name">Multi-Agent Atari DQN</span>
-      <span class="more-desc">Two agents learning to compete from raw pixels — CNN, frame stacking, experience replay</span>
+      <span class="more-desc">Two agents learning to compete from raw pixels using CNNs, frame stacking and experience replay</span>
       <span class="more-arrow">↗</span>
     </a>
     <a class="more-row" href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" rel="noopener">
@@ -311,7 +310,7 @@
 <div id="skills" class="page-section">
   <div class="section-label">Technical Skills</div>
   <h2 class="section-title">My toolkit</h2>
-  <p class="section-subtitle">One bucket, every tool — drop your cursor in and watch them bounce.</p>
+  <p class="section-subtitle">One bucket, every tool. Drop your cursor in and watch them bounce.</p>
 
   <div class="ball-pit-wrap">
     <div class="ball-pit" id="skillPit">
@@ -324,9 +323,9 @@
     <li>XGBoost</li><li>Statsmodels</li><li>SHAP</li><li>LIME</li><li>AutoML</li><li>CUPED</li><li>PSM</li><li>AIPW</li>
     <li>A/B Testing</li><li>LangChain</li><li>LangGraph</li><li>RAG</li><li>FAISS</li><li>Groq</li>
     <li>Pandas</li><li>NumPy</li><li>SciPy</li><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>D3.js</li><li>Power BI</li>
-    <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>FAISS</li><li>MLflow</li><li>Flask</li><li>FastAPI</li><li>Streamlit</li>
+    <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>MLflow</li><li>Flask</li><li>FastAPI</li><li>Streamlit</li>
     <li>React</li><li>Git/GitHub</li><li>GitHub Actions</li><li>pytest</li><li>OpenCV</li><li>CNN</li><li>Keras</li>
-    <li>ARIMA</li><li>K-Means</li><li>Tkinter</li><li>yfinance</li><li>MobileNetV2</li>
+    <li>ARIMA</li><li>K-Means</li><li>Tkinter</li><li>yfinance</li>
   </ul>
 </div>
 
@@ -337,7 +336,7 @@
   <div class="section-label">Contact</div>
   <div class="contact-wrap">
     <h2 class="contact-wrap-title">Let's work together</h2>
-    <p>I'm actively looking for Data Science Co-op opportunities for January 2027 in Boston. If you're hiring — or you just want to argue about whether propensity score matching actually works — I'd like to hear from you.</p>
+    <p>I'm actively looking for Data Science Co-op opportunities for January 2027 in Boston. If you're hiring, or you just want to argue about whether propensity score matching actually works, I'd like to hear from you.</p>
     <div class="contact-links">
       <a href="mailto:velani.sm@northeastern.edu" class="contact-btn">&#9993; velani.sm@northeastern.edu</a>
       <a href="https://github.com/Smit-Velani" target="_blank" rel="noopener" class="contact-btn">GitHub</a>
