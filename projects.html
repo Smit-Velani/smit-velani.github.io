@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Smitkumar Jayendrakumar Velani">
-    <meta name="description" content="Projects by Smitkumar Velani — ML, AI, Data Science, and Web Development projects.">
+    <meta name="description" content="Projects by Smitkumar Velani. ML, AI, Data Science, and Web Development projects.">
     <title>Projects | Smit Velani</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -71,7 +71,7 @@
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       }
 
-      .hero-desc { color: var(--muted); font-size: 1.05rem; max-width: 560px; margin-bottom: 2rem; font-weight: 300; }
+      .hero-desc { color: var(--muted); font-size: 1.05rem; max-width: 620px; margin-bottom: 2rem; font-weight: 300; }
 
       .divider { width: 100%; height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
 
@@ -128,6 +128,16 @@
       }
 
       .project-github-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+
+      .project-demo-btn {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white;
+        padding: 0.7rem 1.2rem; border-radius: 8px;
+        text-decoration: none; font-size: 0.85rem; font-weight: 600;
+        transition: opacity 0.2s, transform 0.2s; margin-top: 0.5rem; margin-right: 0.5rem;
+      }
+
+      .project-demo-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
       .project-right h2 {
         font-family: "Syne", sans-serif;
@@ -220,42 +230,156 @@
     <div class="hero">
       <div class="section-label">Portfolio</div>
       <h1>Things I've <span>Built</span></h1>
-      <p class="hero-desc">A collection of ML, AI, and data science projects — each targeting a different area of the field. Every project here was built from scratch with real data and real outcomes.</p>
+      <p class="hero-desc">A collection of ML, AI, and data science projects. The interesting part of the first three isn't the methods, it's whether the methods can be shown to have worked. Each one ships the diagnostic that would catch it failing.</p>
     </div>
 
     <div class="divider"></div>
 
     <div class="projects-container">
 
-      <!-- PROJECT 01 — IDP -->
-      <div id="idp" class="project">
+      <!-- PROJECT 01 - CausalLens -->
+      <div id="causallens" class="project">
         <div class="project-left">
           <div class="project-number">01</div>
-          <span class="project-tag featured">AutoML · MLOps · Full-Stack</span>
-          <div class="project-title-left">Intelligent Data Platform (IDP)</div>
-          <a href="https://github.com/Smit-Velani/intelligent-data-platform" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+          <span class="project-tag featured">Causal Inference · Experimentation</span>
+          <div class="project-title-left">CausalLens</div>
+          <a href="https://causal-lens-smit.streamlit.app" target="_blank" rel="noopener" class="project-demo-btn">↗ Live Demo</a>
+          <a href="https://github.com/Smit-Velani/causal-lens" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
         </div>
         <div class="project-right">
-          <h2>Intelligent Data Platform (IDP)</h2>
+          <h2>CausalLens</h2>
           <p>
-            An end-to-end <strong>AutoML platform</strong> that turns any uploaded CSV into a trained, explained, and deployment-ready ML model. Upload a dataset — the platform automatically cleans it, detects the problem type (classification, regression, or clustering), trains multiple models, and selects the best one using a configurable <strong>business cost matrix</strong>.
+            A causal inference platform covering the full lifecycle of an experiment: designing it, monitoring it under continuous observation, and estimating the effect afterwards. It implements <strong>CUPED</strong> variance reduction, <strong>difference-in-differences</strong>, <strong>propensity score matching</strong>, <strong>doubly robust AIPW</strong>, Bayesian A/B testing, T-Learner uplift modelling, and <strong>always-valid sequential inference</strong>.
           </p>
           <p>
-            Model selection goes beyond raw accuracy — a <strong>recall-floor guardrail</strong> prevents degenerate predictions, and <strong>leakage-free SMOTE</strong> cross-validation folds ensure evaluation is honest on imbalanced data. An adaptive <strong>SHAP explainer</strong> (Tree, Linear, or Kernel based on model type) provides per-prediction explanations and global feature importance.
+            Every estimator is validated against synthetic data with a known injected effect, so bias is measurable rather than assumed. More importantly, each one ships a diagnostic for the specific assumption it depends on: CUPED reports residual correlation, PSM reports covariate balance and sensitivity to hidden bias, and DiD reports a <strong>parallel-trends placebo test</strong>.
           </p>
           <p>
-            <strong>PSI drift detection</strong> flags when incoming inference data shifts from the training distribution. <strong>Groq LLaMA 3.3</strong> generates a plain-English business report summarizing findings and recommendations, downloadable as a <strong>PDF</strong>. The system ships with 14 pytest tests and a <strong>GitHub Actions CI</strong> pipeline.
+            The failures are kept and documented rather than patched. DiD's confidence interval undercovers at 83% instead of the nominal 95%, and the placebo test explains exactly why. AIPW beats matching on synthetic data and loses badly on the LaLonde benchmark, and the overlap diagnostic explains that too.
           </p>
 
           <div class="achievements">
             <h3>Key Achievements</h3>
             <ul>
-              <li><strong>AUC-ROC 0.981</strong> and <strong>AUC-PR 0.848</strong> on 284K-row imbalanced fraud dataset (0.17% positive rate)</li>
-              <li><strong>Cost-aware model selection</strong> — optimizes expected business loss, not just accuracy</li>
-              <li><strong>Leakage-free SMOTE</strong> — synthetic samples never touch held-out folds</li>
-              <li><strong>Adaptive SHAP</strong> — TreeExplainer for trees, LinearExplainer for linear models</li>
-              <li>Reduced training time from <strong>20 to 3 minutes</strong> via data-size-aware scaling strategy</li>
-              <li><strong>14 pytest tests</strong> with GitHub Actions CI — verified, not just written</li>
+              <li>Cut confounding bias from <strong>1.82</strong> naive to <strong>-0.16</strong> with PSM and <strong>-0.05</strong> with AIPW across 30 random seeds</li>
+              <li>Trimmed outcome variance <strong>47.2%</strong> under CUPED, cutting required sample size by the same margin</li>
+              <li>A placebo test measured a <strong>+0.45 per period</strong> pre-trend from pre-treatment data alone, which predicted the realized DiD bias of <strong>0.37</strong></li>
+              <li>Validated externally on the <strong>LaLonde NSW benchmark</strong>, recovering $1,637 against a $1,794 experimental truth from a -$8,498 naive baseline</li>
+              <li>Beat random targeting by <strong>128.4% AUUC</strong> on the 223K-row Criteo uplift dataset</li>
+              <li>A pipeline-refitting bootstrap exposed <strong>58% understated standard error</strong> in the conventional PSM interval</li>
+              <li><strong>45 pytest tests</strong> under GitHub Actions, including one that proves the placebo test correctly passes when the assumption holds</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">Statsmodels</span>
+              <span class="stack-pill">Scikit-Learn</span>
+              <span class="stack-pill">SciPy</span>
+              <span class="stack-pill">NumPy</span>
+              <span class="stack-pill">Pandas</span>
+              <span class="stack-pill">Matplotlib</span>
+              <span class="stack-pill">Streamlit</span>
+              <span class="stack-pill">pytest</span>
+              <span class="stack-pill">GitHub Actions</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h3>What I Learned</h3>
+            <p>A correct-looking point estimate is not evidence that a method worked. It can be right by luck, or wrong in a way the final number hides. Building the diagnostic that would catch each estimator lying taught me more than implementing the estimators did.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 02 - AgentAudit -->
+      <div id="agentaudit" class="project">
+        <div class="project-left">
+          <div class="project-number">02</div>
+          <span class="project-tag featured">LLM Evaluation · AI Safety</span>
+          <div class="project-title-left">AgentAudit</div>
+          <a href="https://agentaudit-scout.streamlit.app" target="_blank" rel="noopener" class="project-demo-btn">↗ Live Demo</a>
+          <a href="https://github.com/Smit-Velani/agent-audit" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
+        </div>
+        <div class="project-right">
+          <h2>AgentAudit</h2>
+          <p>
+            An AI agent evaluation harness built around <strong>Scout</strong>, a ReAct-style data analyst that answers questions about any uploaded CSV. The project is less about building the agent than about proving whether it works: a hand-written 29-task golden set, dual LLM judges validated against human scoring, regression detection, and adversarial red-teaming.
+          </p>
+          <p>
+            The claim it tries to earn is that an evaluation harness has to be validated too. A judge that scores answers is itself a model that can be wrong, so it gets checked against human scoring. A guardrail is only useful if you know which attacks it misses, so the red-team pass reports failures as prominently as wins. And a regression suite is only meaningful if it catches something, so a bug was deliberately introduced to see whether it would.
+          </p>
+          <p>
+            The red team exposed a hallucination that neither keyword guardrail could see: the agent invented a customer segment absent from the data. That gap motivated a third guardrail, which inverts the logic of the other two by building an allowlist from the dataset itself rather than a denylist of bad patterns.
+          </p>
+
+          <div class="achievements">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li><strong>Cohen's kappa 0.774</strong> judge-vs-human agreement, reported with a bootstrap 95% CI of 0.46 to 1.00 on 15 hand-scored tasks</li>
+              <li>A deliberately introduced operator swap dropped the pass rate <strong>83% to 50%</strong>, caught by automated regression checks</li>
+              <li>The bug was proved by arithmetic, not just a red test: task 11 reported 91 orders instead of 29, and 120 minus 29 equals 91 exactly</li>
+              <li>Red-team sweep cut unsafe responses <strong>86% to 57%</strong> post-guardrail, reproducing exactly after a mid-project model migration</li>
+              <li>Built a <strong>grounding guardrail</strong> validating entity mentions against the dataset, catching invented category names two keyword filters missed</li>
+              <li>Documented the failure the new guardrail still cannot catch: invented numbers attached to real category names</li>
+              <li><strong>23 pytest tests</strong> under GitHub Actions, all running offline without API calls</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">LangChain</span>
+              <span class="stack-pill">LangGraph</span>
+              <span class="stack-pill">Groq</span>
+              <span class="stack-pill">Scikit-Learn</span>
+              <span class="stack-pill">Pydantic</span>
+              <span class="stack-pill">Streamlit</span>
+              <span class="stack-pill">Plotly</span>
+              <span class="stack-pill">ReportLab</span>
+              <span class="stack-pill">pytest</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h3>What I Learned</h3>
+            <p>Groq deprecated both judge models mid-project, which broke every script at once. Centralising the model IDs and documenting the migration taught me more about production ML fragility than the evaluation work did. Also: a test that always fails proves nothing, which is why the specificity check matters more than the detection.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 03 - GlassBox ML -->
+      <div id="glassbox" class="project">
+        <div class="project-left">
+          <div class="project-number">03</div>
+          <span class="project-tag featured">AutoML · MLOps · Full-Stack</span>
+          <div class="project-title-left">GlassBox ML</div>
+          <a href="https://github.com/Smit-Velani/glassbox-ml" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
+        </div>
+        <div class="project-right">
+          <h2>GlassBox ML</h2>
+          <p>
+            An end-to-end <strong>AutoML platform</strong> that turns any uploaded CSV into a cleaned, explained, deployment-ready model. It inspects data quality and flags target leakage before modelling, selects the best model by <strong>business cost</strong> rather than raw accuracy, explains predictions with SHAP, checks for drift, and writes an AI-generated PDF report.
+          </p>
+          <p>
+            Model selection uses a configurable cost matrix that converts each model's confusion matrix into an expected dollar cost, with a <strong>recall-floor guardrail</strong> that disqualifies degenerate "predict nothing" models. <strong>Leakage-free SMOTE</strong> runs inside each cross-validation fold so synthetic samples never touch held-out data.
+          </p>
+          <p>
+            An adaptive <strong>SHAP explainer</strong> picks TreeExplainer for tree models, LinearExplainer for linear ones, and a bounded KernelExplainer otherwise, because KernelSHAP on 284K rows is impractical. <strong>PSI and KS drift detection</strong> flags when inference data shifts from the training distribution.
+          </p>
+
+          <div class="achievements">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li><strong>AUC-ROC 0.981</strong> and <strong>AUC-PR 0.848</strong> on a 284K-row fraud dataset with a 0.17% positive rate</li>
+              <li>The cost-aware selector chose XGBoost over Logistic Regression despite comparable AUC-ROC, because LR's <strong>0.06 precision</strong> produced a far higher expected business cost</li>
+              <li>Cut training time from <strong>20 minutes to 3</strong> via data-size-aware scaling, with SVM auto-excluded above 20K rows and logged explicitly</li>
+              <li><strong>Leakage-free SMOTE</strong> inside CV folds, preventing inflated metrics</li>
+              <li>Data quality inspection assigns a 0 to 100 score and flags leakage before any model is trained</li>
+              <li><strong>14 pytest tests</strong> under GitHub Actions covering problem-type detection, preprocessing, cost matrix, and drift</li>
             </ul>
           </div>
 
@@ -268,10 +392,10 @@
               <span class="stack-pill">XGBoost</span>
               <span class="stack-pill">SHAP</span>
               <span class="stack-pill">LIME</span>
-              <span class="stack-pill">MLflow</span>
-              <span class="stack-pill">Groq LLaMA 3.3</span>
-              <span class="stack-pill">MongoDB Atlas</span>
+              <span class="stack-pill">Scikit-Learn</span>
               <span class="stack-pill">imbalanced-learn</span>
+              <span class="stack-pill">Groq</span>
+              <span class="stack-pill">MongoDB Atlas</span>
               <span class="stack-pill">ReportLab</span>
               <span class="stack-pill">pytest</span>
             </div>
@@ -279,40 +403,40 @@
 
           <div class="learned">
             <h3>What I Learned</h3>
-            <p>The most important lesson: a correct earlier refusal of a shortcut (like KernelSHAP on 284K rows) matters more than feature count. Running the code and fixing real bugs — like the runner-up cost-matrix selection bug — built more confidence than any amount of planning.</p>
+            <p>Refusing a shortcut matters more than feature count. KernelSHAP on 284K rows would have been technically possible and practically useless, so the explainer picks its method by model type instead. Running the code and fixing real bugs, like the runner-up cost-matrix selection bug, built more confidence than any amount of planning.</p>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 02 — Global Economic Intelligence Dashboard -->
+      <!-- PROJECT 04 - Global Economic Intelligence Dashboard -->
       <div id="dashboard" class="project">
         <div class="project-left">
-          <div class="project-number">02</div>
-          <span class="project-tag featured">AI · ML · Full-Stack</span>
+          <div class="project-number">04</div>
+          <span class="project-tag">AI · ML · Full-Stack</span>
           <div class="project-title-left">Global Economic Intelligence Dashboard</div>
-          <a href="https://github.com/Smit-Velani/Global-Economic-Intelligence-Dashboard" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+          <a href="https://github.com/Smit-Velani/Global-Economic-Intelligence-Dashboard" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
         </div>
         <div class="project-right">
           <h2>Global Economic Intelligence Dashboard</h2>
           <p>
-            A real-time economic intelligence platform covering <strong>190+ countries</strong> with AI-generated summaries, machine learning models, live data integration, and interactive visualizations. Built with Flask, D3.js, and Groq LLaMA 3.3.
+            A real-time economic intelligence platform covering <strong>190+ countries</strong> with AI-generated summaries, machine learning models, live data integration, and interactive visualizations. Built with Flask, D3.js, and Groq.
           </p>
           <p>
-            The platform integrates <strong>World Bank API</strong> for live economic data, <strong>ARIMA time series forecasting</strong> for 5-year GDP projections, and <strong>Isolation Forest</strong> anomaly detection to flag countries with unusual GDP growth patterns. News headlines are analyzed in real-time using <strong>VADER sentiment analysis</strong> via NewsAPI.
+            The platform integrates the <strong>World Bank API</strong> for live economic data, <strong>ARIMA time series forecasting</strong> for 5-year GDP projections, and <strong>Isolation Forest</strong> anomaly detection to flag countries with unusual GDP growth patterns. News headlines are analyzed in real time using <strong>VADER sentiment analysis</strong> via NewsAPI.
           </p>
           <p>
-            Machine learning features include <strong>K-Means clustering</strong> to identify economically similar countries and a <strong>recession risk predictor</strong> that scores countries from 0-100% based on GDP growth, inflation, and unemployment. <strong>WebSocket via Flask-SocketIO</strong> auto-refreshes data every 30 minutes without page reload.
+            Machine learning features include <strong>K-Means clustering</strong> to identify economically similar countries and a <strong>recession risk predictor</strong> that scores countries from 0 to 100% based on GDP growth, inflation, and unemployment. <strong>WebSocket via Flask-SocketIO</strong> auto-refreshes data every 30 minutes without a page reload.
           </p>
 
           <div class="achievements">
             <h3>Key Achievements</h3>
             <ul>
-              <li>Interactive <strong>D3.js choropleth map</strong> with GDP, inflation, unemployment metric toggle</li>
-              <li><strong>Groq LLaMA 3.3</strong> generates country economic summaries and investor risk ratings</li>
+              <li>Interactive <strong>D3.js choropleth map</strong> with GDP, inflation, and unemployment metric toggle</li>
+              <li>LLM-generated country economic summaries and investor risk ratings</li>
               <li><strong>K-Means clustering</strong> identifies peer economies for each country</li>
-              <li><strong>Animated GDP bar chart race</strong> (2000-2024) for top 10 economies</li>
+              <li><strong>Animated GDP bar chart race</strong> (2000 to 2024) for the top 10 economies</li>
               <li>Country comparison tool with <strong>Plotly radar charts</strong> across 5 metrics</li>
-              <li>PDF report export, currency tracker, and economic health score (0-100)</li>
+              <li>PDF report export, currency tracker, and an economic health score from 0 to 100</li>
             </ul>
           </div>
 
@@ -326,7 +450,7 @@
               <span class="stack-pill">Plotly</span>
               <span class="stack-pill">Scikit-Learn</span>
               <span class="stack-pill">ARIMA</span>
-              <span class="stack-pill">Groq LLaMA 3.3</span>
+              <span class="stack-pill">Groq</span>
               <span class="stack-pill">VADER</span>
               <span class="stack-pill">World Bank API</span>
               <span class="stack-pill">NewsAPI</span>
@@ -340,35 +464,35 @@
         </div>
       </div>
 
-      <!-- PROJECT 03 — DailyBrief AI -->
+      <!-- PROJECT 05 - DailyBrief AI -->
       <div id="dailybrief" class="project">
         <div class="project-left">
-          <div class="project-number">03</div>
+          <div class="project-number">05</div>
           <span class="project-tag">AI Pipeline · Deployed</span>
           <div class="project-title-left">DailyBrief AI</div>
-          <a href="https://github.com/Smit-Velani/dailybrief-ai" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+          <a href="https://github.com/Smit-Velani/dailybrief-ai" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
         </div>
         <div class="project-right">
-          <h2>DailyBrief AI — Personal Intelligence System</h2>
+          <h2>DailyBrief AI, a personal intelligence system</h2>
           <p>
-            A <strong>6-layer AI pipeline</strong> that reads your Gmail, analyzes your Google Calendar, and automatically delivers a personalized daily intelligence brief three times per day — even when your PC is off. Deployed 24/7 on Railway cloud.
+            A <strong>6-layer AI pipeline</strong> that reads your Gmail, analyzes your Google Calendar, and automatically delivers a personalized daily intelligence brief three times per day, even when your PC is off. Deployed 24/7 on Railway cloud.
           </p>
           <p>
-            The pipeline layers work in sequence: <strong>Gmail API</strong> ingests inbox, <strong>Google Calendar API</strong> checks schedule, an <strong>NLP parser</strong> using spaCy and VADER detects deadlines and urgency signals, an <strong>XGBoost classifier</strong> scores email priorities with a self-improving feedback loop, <strong>Groq LLaMA 3.3</strong> generates the personalized brief, and <strong>Resend API</strong> delivers a beautifully formatted HTML email.
+            The layers work in sequence: <strong>Gmail API</strong> ingests the inbox, <strong>Google Calendar API</strong> checks the schedule, an <strong>NLP parser</strong> using spaCy and VADER detects deadlines and urgency signals, an <strong>XGBoost classifier</strong> scores email priorities with a self-improving feedback loop, an LLM generates the personalized brief, and <strong>Resend API</strong> delivers a formatted HTML email.
           </p>
           <p>
-            All briefs and email statistics are stored in <strong>MongoDB Atlas</strong>. An <strong>APScheduler</strong> cron job triggers delivery at 8:30 AM, 2:00 PM, and 8:00 PM daily. The system runs autonomously without any manual intervention.
+            All briefs and email statistics are stored in <strong>MongoDB Atlas</strong>. An <strong>APScheduler</strong> cron job triggers delivery at 8:30 AM, 2:00 PM, and 8:00 PM daily. The system runs autonomously without manual intervention.
           </p>
 
           <div class="achievements">
             <h3>Key Achievements</h3>
             <ul>
-              <li><strong>6-layer autonomous pipeline</strong> — runs 24/7 without manual intervention</li>
+              <li><strong>6-layer autonomous pipeline</strong> running 24/7 without manual intervention</li>
               <li><strong>Gmail OAuth2</strong> and <strong>Google Calendar API</strong> integration for real inbox data</li>
-              <li><strong>XGBoost priority classifier</strong> with self-improving feedback loop via MongoDB</li>
-              <li><strong>Groq LLaMA 3.3</strong> generates context-aware, personalized brief content</li>
+              <li><strong>XGBoost priority classifier</strong> with a self-improving feedback loop via MongoDB</li>
+              <li>LLM-generated context-aware, personalized brief content</li>
               <li>Delivers <strong>3 briefs daily</strong> (morning, afternoon, evening) via Resend API</li>
-              <li>Deployed on <strong>Railway cloud</strong> — fully operational without local machine</li>
+              <li>Deployed on <strong>Railway cloud</strong>, fully operational without a local machine</li>
             </ul>
           </div>
 
@@ -376,7 +500,7 @@
             <h3>Tech Stack</h3>
             <div class="stack-pills">
               <span class="stack-pill">Python</span>
-              <span class="stack-pill">Groq LLaMA 3.3</span>
+              <span class="stack-pill">Groq</span>
               <span class="stack-pill">XGBoost</span>
               <span class="stack-pill">spaCy</span>
               <span class="stack-pill">VADER</span>
@@ -391,29 +515,84 @@
 
           <div class="learned">
             <h3>What I Learned</h3>
-            <p>Building a truly autonomous pipeline taught me that reliability matters more than features. Handling OAuth token expiry in production (solved by republishing to Production mode), managing Groq rate limits across projects, and designing a self-improving feedback loop gave me real production ML engineering experience.</p>
+            <p>Building a truly autonomous pipeline taught me that reliability matters more than features. Handling OAuth token expiry in production, managing rate limits across projects, and designing a self-improving feedback loop gave me real production ML engineering experience.</p>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 04 — RAG PDF Chatbot -->
+      <!-- PROJECT 06 - AutoApply AI -->
+      <div id="autoapply" class="project">
+        <div class="project-left">
+          <div class="project-number">06</div>
+          <span class="project-tag">Multi-Agent · LLM · Deployed</span>
+          <div class="project-title-left">AutoApply AI</div>
+          <a href="https://github.com/Smit-Velani/autoapply-ai" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
+        </div>
+        <div class="project-right">
+          <h2>AutoApply AI, a multi-agent job application platform</h2>
+          <p>
+            A <strong>multi-agent autonomous job application platform</strong> where five specialized LLM agents work in sequence to scout job postings, score each one against a user's resume, tailor bullet points, draft cover letters, and run an ATS quality check. Results appear on a dashboard and arrive as a daily digest email.
+          </p>
+          <p>
+            <strong>Agent 1 (Scout)</strong> uses the Tavily API to find jobs across Greenhouse, Lever, Ashby, and Wellfound. <strong>Agent 2 (Analyst)</strong> scores each job 0 to 100. <strong>Agent 3 (Tailor)</strong> rewrites resume bullets to match the job. <strong>Agent 4 (Cover Letter)</strong> drafts a personalized letter. <strong>Agent 5 (QC)</strong> produces ATS compatibility scores and skill gap analysis.
+          </p>
+          <p>
+            The system includes <strong>JWT authentication</strong>, bcrypt password hashing, email-based password reset, per-user data isolation in <strong>MongoDB Atlas</strong>, PDF resume upload, application status tracking, and an <strong>APScheduler</strong> daily pipeline run at 8:30 AM EST.
+          </p>
+
+          <div class="achievements">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li><strong>5-agent pipeline</strong> that scouts, scores, tailors, writes, and quality-checks in sequence</li>
+              <li>Full-stack deployment on <strong>Railway</strong> (backend) and <strong>Vercel</strong> (frontend)</li>
+              <li><strong>JWT auth</strong> with email-based password reset via Resend API</li>
+              <li><strong>Per-user data isolation</strong> using a JWT-decoded email to filter all queries</li>
+              <li>PDF resume parsing, application status tracker, and private notes per job</li>
+            </ul>
+          </div>
+
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-pills">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">FastAPI</span>
+              <span class="stack-pill">React</span>
+              <span class="stack-pill">Groq</span>
+              <span class="stack-pill">Tavily API</span>
+              <span class="stack-pill">MongoDB Atlas</span>
+              <span class="stack-pill">JWT</span>
+              <span class="stack-pill">APScheduler</span>
+              <span class="stack-pill">Railway</span>
+              <span class="stack-pill">Vercel</span>
+              <span class="stack-pill">Resend API</span>
+            </div>
+          </div>
+
+          <div class="learned">
+            <h3>What I Learned</h3>
+            <p>Building a multi-agent system taught me that each agent should have one clear job, which makes the system easier to debug and extend than a single monolithic prompt. The biggest challenge was per-user data isolation and handling JWT auth correctly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 07 - RAG PDF Chatbot -->
       <div id="rag" class="project">
         <div class="project-left">
-          <div class="project-number">04</div>
+          <div class="project-number">07</div>
           <span class="project-tag">NLP · LLM · RAG</span>
           <div class="project-title-left">RAG PDF Chatbot</div>
-          <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+          <a href="https://github.com/Smit-Velani/RAG-PDF-Chatbot" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
         </div>
         <div class="project-right">
           <h2>RAG PDF Chatbot</h2>
           <p>
-            This project builds an end-to-end <strong>Retrieval-Augmented Generation (RAG)</strong> pipeline that allows users to upload any PDF document and ask natural language questions about its content. The system retrieves the most relevant sections from the document and uses a large language model to generate accurate, context-grounded answers.
+            An end-to-end <strong>Retrieval-Augmented Generation</strong> pipeline that lets users upload any PDF and ask natural language questions about its content. The system retrieves the most relevant sections and uses a large language model to generate answers grounded in the source document.
           </p>
           <p>
-            The pipeline processes PDFs into 500-word overlapping chunks and stores them as <strong>384-dimensional semantic vectors</strong> using HuggingFace sentence-transformers (all-MiniLM-L6-v2). When a user asks a question, the system performs semantic search using <strong>FAISS</strong> to retrieve the top-3 most relevant chunks.
+            The pipeline processes PDFs into 500-word overlapping chunks and stores them as <strong>384-dimensional semantic vectors</strong> using HuggingFace sentence-transformers (all-MiniLM-L6-v2). When a user asks a question, the system performs semantic search using <strong>FAISS</strong> to retrieve the top 3 most relevant chunks.
           </p>
           <p>
-            The retrieved context is passed to <strong>Google Gemini 2.5 Flash API</strong> with a custom prompt engineering template that instructs the model to answer only from the provided context — preventing hallucination and keeping answers grounded in the source document.
+            The retrieved context goes to <strong>Google Gemini 2.5 Flash</strong> with a prompt template instructing the model to answer only from the provided context, which prevents hallucination and keeps answers grounded. When the answer isn't in the document, it says so.
           </p>
 
           <div class="achievements">
@@ -421,9 +600,9 @@
             <ul>
               <li>Processes PDFs into <strong>500-word overlapping chunks</strong> for better context retention</li>
               <li>Stores <strong>384-dimensional semantic vectors</strong> in FAISS for fast retrieval</li>
-              <li>Retrieves <strong>top-3 relevant chunks</strong> per query using cosine similarity</li>
-              <li>Achieved <strong>correct answers on factual queries</strong> across 15-page research documents</li>
-              <li>Integrated <strong>Gemini 2.5 Flash API</strong> with custom prompt engineering</li>
+              <li>Retrieves <strong>top 3 relevant chunks</strong> per query using cosine similarity</li>
+              <li>Returns correct answers on factual queries across 15-page research documents</li>
+              <li>Refuses honestly when the answer is not present in the source document</li>
             </ul>
           </div>
 
@@ -442,94 +621,38 @@
 
           <div class="learned">
             <h3>What I Learned</h3>
-            <p>Building this project gave me deep hands-on experience with vector databases, semantic search, and prompt engineering — skills that are increasingly central to production AI systems. I learned how chunking strategy significantly impacts retrieval quality.</p>
+            <p>Building this gave me hands-on experience with vector databases, semantic search, and prompt engineering. I learned how much chunking strategy affects retrieval quality, and that an honest refusal is a feature rather than a failure.</p>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 05 — AutoApply AI -->
-      <div id="autoapply" class="project">
-        <div class="project-left">
-          <div class="project-number">05</div>
-          <span class="project-tag">Multi-Agent · LLM · Deployed</span>
-          <div class="project-title-left">AutoApply AI</div>
-          <a href="https://github.com/Smit-Velani/autoapply-ai" target="_blank" class="project-github-btn">↗ View on GitHub</a>
-        </div>
-        <div class="project-right">
-          <h2>AutoApply AI — Multi-Agent Job Application Platform</h2>
-          <p>
-            A <strong>multi-agent autonomous job application platform</strong> where five specialized LLM agents work in sequence to scout job postings, score each one against a user's resume, tailor bullet points, draft cover letters, and run an ATS quality check. Results are shown on a dashboard and emailed as a daily digest.
-          </p>
-          <p>
-            <strong>Agent 1 (Scout)</strong> uses Tavily API to find jobs across Greenhouse, Lever, Ashby, and Wellfound. <strong>Agent 2 (Analyst)</strong> scores each job 0-100 using Groq LLaMA. <strong>Agent 3 (Tailor)</strong> rewrites resume bullets to match the job. <strong>Agent 4 (Cover Letter)</strong> drafts a personalized letter. <strong>Agent 5 (QC)</strong> produces ATS compatibility scores and skill gap analysis.
-          </p>
-          <p>
-            The system includes <strong>JWT authentication</strong>, bcrypt password hashing, email-based password reset, per-user data isolation in <strong>MongoDB Atlas</strong>, PDF resume upload, application status tracking, and an <strong>APScheduler</strong> daily pipeline run at 8:30 AM EST.
-          </p>
-
-          <div class="achievements">
-            <h3>Key Achievements</h3>
-            <ul>
-              <li><strong>5-agent pipeline</strong> — scout, score, tailor, write, QC in sequence</li>
-              <li>Full-stack deployment: <strong>Railway</strong> (backend) + <strong>Vercel</strong> (frontend)</li>
-              <li><strong>JWT auth</strong> with email-based password reset via Resend API</li>
-              <li><strong>Per-user data isolation</strong> — JWT-decoded email filters all queries</li>
-              <li>PDF resume parsing, application status tracker, private notes per job</li>
-              <li>Validated by a <strong>real interview invite</strong> from ClearView Healthcare Partners</li>
-            </ul>
-          </div>
-
-          <div class="tech-stack">
-            <h3>Tech Stack</h3>
-            <div class="stack-pills">
-              <span class="stack-pill">Python</span>
-              <span class="stack-pill">FastAPI</span>
-              <span class="stack-pill">React</span>
-              <span class="stack-pill">Groq LLaMA 3.3</span>
-              <span class="stack-pill">Tavily API</span>
-              <span class="stack-pill">MongoDB Atlas</span>
-              <span class="stack-pill">JWT</span>
-              <span class="stack-pill">APScheduler</span>
-              <span class="stack-pill">Railway</span>
-              <span class="stack-pill">Vercel</span>
-              <span class="stack-pill">Resend API</span>
-            </div>
-          </div>
-
-          <div class="learned">
-            <h3>What I Learned</h3>
-            <p>Building a multi-agent system taught me that each agent should have one clear job — it makes the system easier to debug and extend than a single monolithic prompt. The biggest challenge was per-user data isolation and handling JWT auth correctly at scale.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 06 — Atari Boxing DQN -->
+      <!-- PROJECT 08 - Atari Boxing DQN -->
       <div id="atari" class="project">
         <div class="project-left">
-          <div class="project-number">06</div>
+          <div class="project-number">08</div>
           <span class="project-tag">Reinforcement Learning</span>
           <div class="project-title-left">Multi-Agent Atari Boxing DQN</div>
-          <a href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+          <a href="https://github.com/Smit-Velani/Multi-Agent-Atari-Boxing-DQN" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
         </div>
         <div class="project-right">
           <h2>Multi-Agent Atari Boxing with Deep Q-Learning</h2>
           <p>
-            This project trains two competing <strong>Deep Q-Network (DQN) agents</strong> to play the Atari Boxing game against each other using the PettingZoo multi-agent environment and PyTorch. The agents learn entirely through self-play — no hardcoded rules or human demonstrations.
+            Two competing <strong>Deep Q-Network agents</strong> trained to play Atari Boxing against each other using the PettingZoo multi-agent environment and PyTorch. The agents learn entirely through self-play, with no hardcoded rules and no human demonstrations.
           </p>
           <p>
-            Each agent uses a <strong>CNN-based DQN architecture</strong> consisting of 3 convolutional layers followed by 2 fully connected layers, operating on 4 stacked 84×84 grayscale frames as input. The stacking of frames gives the agent temporal information to infer velocity and direction.
+            Each agent uses a <strong>CNN-based DQN architecture</strong> of 3 convolutional layers followed by 2 fully connected layers, operating on 4 stacked 84 by 84 grayscale frames. Stacking frames gives the agent temporal information to infer velocity and direction.
           </p>
           <p>
-            Key RL techniques implemented from scratch include <strong>Experience Replay</strong> with a 10,000-sample buffer, <strong>Target Networks</strong> for stable Q-value updates, and <strong>Epsilon-Greedy exploration</strong> decaying from 1.0 to 0.1 over training. Trained over 200 episodes on a T4 GPU.
+            Key RL techniques implemented from scratch include <strong>Experience Replay</strong> with a 10,000-sample buffer, <strong>Target Networks</strong> for stable Q-value updates, and <strong>Epsilon-Greedy exploration</strong> decaying from 1.0 to 0.1. Trained over 200 episodes on a T4 GPU.
           </p>
 
           <div class="achievements">
             <h3>Key Achievements</h3>
             <ul>
-              <li>Achieved <strong>62%/38% win-rate split</strong> between agents after 200 episodes</li>
-              <li>Trained on <strong>T4 GPU</strong> via Google Colab</li>
-              <li>Implemented <strong>Experience Replay (10K buffer)</strong> and Target Networks from scratch</li>
-              <li>Preprocessed <strong>210×160×3 RGB frames</strong> to 84×84 grayscale using OpenCV</li>
+              <li>Achieved a <strong>62% to 38% win-rate split</strong> between agents after 200 episodes</li>
+              <li>Trained on a <strong>T4 GPU</strong> via Google Colab</li>
+              <li>Implemented <strong>Experience Replay</strong> and Target Networks from scratch</li>
+              <li>Preprocessed <strong>210 by 160 by 3 RGB frames</strong> to 84 by 84 grayscale using OpenCV</li>
               <li>Visualized reward curves and win-rate progression using Matplotlib</li>
             </ul>
           </div>
@@ -543,35 +666,35 @@
               <span class="stack-pill">OpenCV</span>
               <span class="stack-pill">Matplotlib</span>
               <span class="stack-pill">Google Colab</span>
-              <span class="stack-pill">CUDA (T4 GPU)</span>
+              <span class="stack-pill">CUDA</span>
             </div>
           </div>
 
           <div class="learned">
             <h3>What I Learned</h3>
-            <p>This project gave me practical experience with the full DQN training loop and how multi-agent environments introduce non-stationarity that makes training more challenging than single-agent RL.</p>
+            <p>This gave me practical experience with the full DQN training loop, and showed how multi-agent environments introduce non-stationarity that makes training harder than single-agent RL.</p>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 07 — DataPulse Dashboard -->
+      <!-- PROJECT 09 - DataPulse Dashboard -->
       <div id="datapulse" class="project">
         <div class="project-left">
-          <div class="project-number">07</div>
+          <div class="project-number">09</div>
           <span class="project-tag">Data Visualization</span>
           <div class="project-title-left">DataPulse Dashboard</div>
-          <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+          <a href="https://github.com/Smit-Velani/datapulse-dashboard" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
         </div>
         <div class="project-right">
           <h2>DataPulse Dashboard</h2>
           <p>
-            DataPulse is a fully interactive, dark-themed analytics dashboard built with <strong>D3.js v7</strong> that visualizes over 11,900 records across three different datasets — no backend required. All data is loaded client-side using the Fetch API.
+            A fully interactive, dark-themed analytics dashboard built with <strong>D3.js v7</strong> that visualizes over 11,900 records across three datasets, with no backend required. All data loads client-side using the Fetch API.
           </p>
           <p>
-            The dashboard features <strong>7 chart types</strong> including bar charts, line charts, scatter plots, heatmaps, area charts, pie charts, and KPI cards — all built from scratch using D3.js SVG rendering. Every chart is interactive with tooltips, hover states, and click-to-filter functionality.
+            The dashboard features <strong>7 chart types</strong> including bar charts, line charts, scatter plots, heatmaps, area charts, pie charts, and KPI cards, all built from scratch using D3.js SVG rendering. Every chart is interactive with tooltips, hover states, and click-to-filter.
           </p>
           <p>
-            The three datasets cover <strong>1,000 e-commerce orders</strong>, <strong>7,300 climate readings</strong>, and <strong>3,600 stock records</strong> — demonstrating the dashboard's versatility across different data domains.
+            The three datasets cover <strong>1,000 e-commerce orders</strong>, <strong>7,300 climate readings</strong>, and <strong>3,600 stock records</strong>, demonstrating versatility across data domains.
           </p>
 
           <div class="achievements">
@@ -579,7 +702,7 @@
             <ul>
               <li>Built <strong>7 chart types</strong> from scratch using D3.js v7 SVG rendering</li>
               <li>Visualizes <strong>11,900+ records</strong> across 3 different datasets</li>
-              <li><strong>Zero backend</strong> — pure front-end with client-side data loading</li>
+              <li><strong>Zero backend</strong>, pure front-end with client-side data loading</li>
               <li>Full dark theme with interactive tooltips and hover states on all charts</li>
             </ul>
           </div>
@@ -598,39 +721,39 @@
 
           <div class="learned">
             <h3>What I Learned</h3>
-            <p>Building complex visualizations with D3.js from scratch taught me how SVG rendering works at a low level, and how to think about data binding, scales, and axes. Debugging rendering issues without a framework forced me to deeply understand the DOM.</p>
+            <p>Building complex visualizations with D3.js from scratch taught me how SVG rendering works at a low level, and how to think about data binding, scales, and axes. Debugging without a framework forced me to understand the DOM properly.</p>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 08 — Customer Shopping Behavior -->
+      <!-- PROJECT 10 - Customer Shopping Behavior -->
       <div id="shopping" class="project">
         <div class="project-left">
-          <div class="project-number">08</div>
+          <div class="project-number">10</div>
           <span class="project-tag">Data Analytics · SQL</span>
           <div class="project-title-left">Customer Shopping Behavior</div>
-          <a href="https://github.com/Smit-Velani/customer_behavior" target="_blank" class="project-github-btn">↗ View on GitHub</a>
+          <a href="https://github.com/Smit-Velani/customer_behavior" target="_blank" rel="noopener" class="project-github-btn">↗ View on GitHub</a>
         </div>
         <div class="project-right">
           <h2>Customer Shopping Behavior Analysis</h2>
           <p>
-            An end-to-end data analytics project analyzing <strong>3,900 retail transactions</strong> to uncover customer purchasing patterns, segment performance, and revenue distribution. The project covers the full analytics pipeline from raw data ingestion and SQL analysis to interactive Power BI visualization.
+            An end-to-end analytics project on <strong>3,900 retail transactions</strong>, uncovering purchasing patterns, segment performance, and revenue distribution. It covers the full pipeline from raw data ingestion and SQL analysis to interactive Power BI visualization.
           </p>
           <p>
-            The SQL analysis uses <strong>10 complex queries</strong> including Common Table Expressions (CTEs) and window functions to calculate running totals, rank customers by lifetime value, and identify seasonal purchase trends — all executed in <strong>PostgreSQL</strong>.
+            The SQL analysis uses <strong>10 complex queries</strong> including Common Table Expressions and window functions to calculate running totals, rank customers by lifetime value, and identify seasonal purchase trends, all executed in <strong>PostgreSQL</strong>.
           </p>
           <p>
-            The final <strong>Power BI dashboard</strong> reveals key business insights including a $157K vs $75K gender revenue split and identifies Young Adults as the top customer segment with $62,143 in total spend.
+            The final <strong>Power BI dashboard</strong> surfaces a $157K versus $75K gender revenue split and identifies Young Adults as the top customer segment with $62,143 in total spend.
           </p>
 
           <div class="achievements">
             <h3>Key Achievements</h3>
             <ul>
-              <li>Analyzed <strong>3,900 retail transactions</strong> end-to-end</li>
+              <li>Analyzed <strong>3,900 retail transactions</strong> end to end</li>
               <li>Wrote <strong>10 SQL queries</strong> using CTEs and window functions</li>
-              <li>Uncovered <strong>$157K vs $75K gender revenue split</strong></li>
-              <li>Identified <strong>Young Adults as top segment</strong> with $62,143 total spend</li>
-              <li>Built interactive <strong>Power BI dashboard</strong> for business stakeholders</li>
+              <li>Uncovered a <strong>$157K versus $75K gender revenue split</strong></li>
+              <li>Identified <strong>Young Adults as the top segment</strong> with $62,143 total spend</li>
+              <li>Built an interactive <strong>Power BI dashboard</strong> for business stakeholders</li>
             </ul>
           </div>
 
@@ -648,7 +771,7 @@
 
           <div class="learned">
             <h3>What I Learned</h3>
-            <p>This project reinforced how much insight can come from structured data when the right questions are asked. Writing complex SQL with window functions taught me to think about data transformation as a pipeline rather than individual queries.</p>
+            <p>This reinforced how much insight comes from structured data when the right questions are asked. Writing complex SQL with window functions taught me to think about data transformation as a pipeline rather than individual queries.</p>
           </div>
         </div>
       </div>
@@ -659,9 +782,9 @@
       <p>
         <a href="index.html">← Back to Home</a> &nbsp;·&nbsp;
         Smitkumar Jayendrakumar Velani &nbsp;·&nbsp;
-        <a href="https://github.com/Smit-Velani" target="_blank">GitHub</a>
+        <a href="https://github.com/Smit-Velani" target="_blank" rel="noopener">GitHub</a>
         &nbsp;·&nbsp;
-        <a href="https://www.linkedin.com/in/smit-velani" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/smit-velani" target="_blank" rel="noopener">LinkedIn</a>
       </p>
     </footer>
 
