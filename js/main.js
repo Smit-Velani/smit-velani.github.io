@@ -30,7 +30,7 @@ function type() {
       phraseIndex = (phraseIndex + 1) % phrases.length;
     }
   }
-  setTimeout(type, isDeleting ? 40 : 60);
+  setTimeout(type, isDeleting ? 40 : 60); // refactor to use setInterval() instead of setTimeout()
 }
 
 type();
